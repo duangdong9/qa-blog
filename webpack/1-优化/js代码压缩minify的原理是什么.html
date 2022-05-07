@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>js代码压缩minify的原理是什么 | duangdong的qa</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/logo.png">
+    <link rel="manifest" href="/manifest.json">
+    <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?0088ce24040b03f2947322ab31d23414";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+    <script>
+  var _hmt = _hmt || [];
+  _hmt.push(['_requirePlugin', 'UrlChangeTracker', {
+    shouldTrackUrlChange: function (newPath, oldPath) {
+      newPath = newPath.split('#')[0];
+      oldPath = oldPath.split('#')[0];
+      return newPath != oldPath;
+    }}
+  ]);
+  </script>
+    <meta name="description" content="前端QA集锦">
+    <meta name="keywords" content="qd-blog,js,vuepress,leetcode,react,react进阶,css,js进阶,react性能优化,js设计模式">
+    
+    <link rel="preload" href="/assets/css/0.styles.a427ee9b.css" as="style"><link rel="preload" href="/assets/js/app.cc29bea5.js" as="script"><link rel="preload" href="/assets/js/2.83e79809.js" as="script"><link rel="preload" href="/assets/js/127.19752fc6.js" as="script"><link rel="prefetch" href="/assets/js/10.cdef3e61.js"><link rel="prefetch" href="/assets/js/100.9de46115.js"><link rel="prefetch" href="/assets/js/101.70ad4a27.js"><link rel="prefetch" href="/assets/js/102.ff0729c2.js"><link rel="prefetch" href="/assets/js/103.b61f3d8a.js"><link rel="prefetch" href="/assets/js/104.94754019.js"><link rel="prefetch" href="/assets/js/105.cf6eaddb.js"><link rel="prefetch" href="/assets/js/106.09607941.js"><link rel="prefetch" href="/assets/js/107.eb6aad92.js"><link rel="prefetch" href="/assets/js/108.5fb05fc2.js"><link rel="prefetch" href="/assets/js/109.02705239.js"><link rel="prefetch" href="/assets/js/11.e19708ce.js"><link rel="prefetch" href="/assets/js/110.5b97d932.js"><link rel="prefetch" href="/assets/js/111.1741cbc8.js"><link rel="prefetch" href="/assets/js/112.91e34053.js"><link rel="prefetch" href="/assets/js/113.38b87fa3.js"><link rel="prefetch" href="/assets/js/114.69942d7f.js"><link rel="prefetch" href="/assets/js/115.5010afa8.js"><link rel="prefetch" href="/assets/js/116.c66bced5.js"><link rel="prefetch" href="/assets/js/117.61ecb793.js"><link rel="prefetch" href="/assets/js/118.8e9169d6.js"><link rel="prefetch" href="/assets/js/119.5b28750b.js"><link rel="prefetch" href="/assets/js/12.cce41bff.js"><link rel="prefetch" href="/assets/js/120.2cdd2d50.js"><link rel="prefetch" href="/assets/js/121.9bee1240.js"><link rel="prefetch" href="/assets/js/122.6a5d2b8a.js"><link rel="prefetch" href="/assets/js/123.242cf32a.js"><link rel="prefetch" href="/assets/js/124.0b76dfb5.js"><link rel="prefetch" href="/assets/js/125.c1e29722.js"><link rel="prefetch" href="/assets/js/126.9664677c.js"><link rel="prefetch" href="/assets/js/128.dd9e958a.js"><link rel="prefetch" href="/assets/js/129.84a3561e.js"><link rel="prefetch" href="/assets/js/13.c253f220.js"><link rel="prefetch" href="/assets/js/130.a08a6ecf.js"><link rel="prefetch" href="/assets/js/131.9e32d49f.js"><link rel="prefetch" href="/assets/js/132.0ae0b256.js"><link rel="prefetch" href="/assets/js/133.060204a8.js"><link rel="prefetch" href="/assets/js/134.15ce6cca.js"><link rel="prefetch" href="/assets/js/135.7d821d3b.js"><link rel="prefetch" href="/assets/js/136.f54c3393.js"><link rel="prefetch" href="/assets/js/137.73f8f3cb.js"><link rel="prefetch" href="/assets/js/138.3fcd68c2.js"><link rel="prefetch" href="/assets/js/139.a361e3fb.js"><link rel="prefetch" href="/assets/js/14.a84fbe4e.js"><link rel="prefetch" href="/assets/js/140.d6436f88.js"><link rel="prefetch" href="/assets/js/141.835fd3c3.js"><link rel="prefetch" href="/assets/js/142.6d7f1b6a.js"><link rel="prefetch" href="/assets/js/143.b59d5138.js"><link rel="prefetch" href="/assets/js/144.a91c5d7c.js"><link rel="prefetch" href="/assets/js/145.a82b970b.js"><link rel="prefetch" href="/assets/js/15.b54e6f93.js"><link rel="prefetch" href="/assets/js/16.ccb68524.js"><link rel="prefetch" href="/assets/js/17.685e3630.js"><link rel="prefetch" href="/assets/js/18.047549bf.js"><link rel="prefetch" href="/assets/js/19.0f4f96d2.js"><link rel="prefetch" href="/assets/js/20.b7f58fdf.js"><link rel="prefetch" href="/assets/js/21.cd536870.js"><link rel="prefetch" href="/assets/js/22.e6a2b54c.js"><link rel="prefetch" href="/assets/js/23.8761d4ef.js"><link rel="prefetch" href="/assets/js/24.3a10f654.js"><link rel="prefetch" href="/assets/js/25.299ff32c.js"><link rel="prefetch" href="/assets/js/26.2b06449f.js"><link rel="prefetch" href="/assets/js/27.eb2c15d0.js"><link rel="prefetch" href="/assets/js/28.3bb78046.js"><link rel="prefetch" href="/assets/js/29.26d0768b.js"><link rel="prefetch" href="/assets/js/3.8c6e4674.js"><link rel="prefetch" href="/assets/js/30.cb6d6f37.js"><link rel="prefetch" href="/assets/js/31.619debb1.js"><link rel="prefetch" href="/assets/js/32.5a01de56.js"><link rel="prefetch" href="/assets/js/33.93ba32f7.js"><link rel="prefetch" href="/assets/js/34.2ff74100.js"><link rel="prefetch" href="/assets/js/35.cdcf2ef2.js"><link rel="prefetch" href="/assets/js/36.1baecf5e.js"><link rel="prefetch" href="/assets/js/37.4002681b.js"><link rel="prefetch" href="/assets/js/38.0e84f132.js"><link rel="prefetch" href="/assets/js/39.215ee9b9.js"><link rel="prefetch" href="/assets/js/4.9d6db3cd.js"><link rel="prefetch" href="/assets/js/40.21802a7c.js"><link rel="prefetch" href="/assets/js/41.c772582d.js"><link rel="prefetch" href="/assets/js/42.5ef2d435.js"><link rel="prefetch" href="/assets/js/43.71deafdf.js"><link rel="prefetch" href="/assets/js/44.2acd6f92.js"><link rel="prefetch" href="/assets/js/45.8cf8ea01.js"><link rel="prefetch" href="/assets/js/46.a4a4f4ba.js"><link rel="prefetch" href="/assets/js/47.93b271ca.js"><link rel="prefetch" href="/assets/js/48.1e220ef7.js"><link rel="prefetch" href="/assets/js/49.5112acbe.js"><link rel="prefetch" href="/assets/js/5.9636b620.js"><link rel="prefetch" href="/assets/js/50.ea75d63c.js"><link rel="prefetch" href="/assets/js/51.ba8f6e8d.js"><link rel="prefetch" href="/assets/js/52.525952af.js"><link rel="prefetch" href="/assets/js/53.fbef089c.js"><link rel="prefetch" href="/assets/js/54.e36b03e8.js"><link rel="prefetch" href="/assets/js/55.1f8e914f.js"><link rel="prefetch" href="/assets/js/56.84d8db76.js"><link rel="prefetch" href="/assets/js/57.34d4b4f7.js"><link rel="prefetch" href="/assets/js/58.05df60b8.js"><link rel="prefetch" href="/assets/js/59.c50bb43f.js"><link rel="prefetch" href="/assets/js/6.26dc4787.js"><link rel="prefetch" href="/assets/js/60.2b363427.js"><link rel="prefetch" href="/assets/js/61.68061681.js"><link rel="prefetch" href="/assets/js/62.5ad03807.js"><link rel="prefetch" href="/assets/js/63.fd77d2f7.js"><link rel="prefetch" href="/assets/js/64.d16973e2.js"><link rel="prefetch" href="/assets/js/65.5a919fcc.js"><link rel="prefetch" href="/assets/js/66.09a5b755.js"><link rel="prefetch" href="/assets/js/67.911ca7b3.js"><link rel="prefetch" href="/assets/js/68.864e96c7.js"><link rel="prefetch" href="/assets/js/69.bc28ceb9.js"><link rel="prefetch" href="/assets/js/7.4a3e9bcd.js"><link rel="prefetch" href="/assets/js/70.a2d51b70.js"><link rel="prefetch" href="/assets/js/71.85cf7cc4.js"><link rel="prefetch" href="/assets/js/72.61cbf371.js"><link rel="prefetch" href="/assets/js/73.bbe26749.js"><link rel="prefetch" href="/assets/js/74.0c80f634.js"><link rel="prefetch" href="/assets/js/75.a627cf37.js"><link rel="prefetch" href="/assets/js/76.82d762a4.js"><link rel="prefetch" href="/assets/js/77.f1dd0c86.js"><link rel="prefetch" href="/assets/js/78.0c9ca678.js"><link rel="prefetch" href="/assets/js/79.4b4bdd67.js"><link rel="prefetch" href="/assets/js/8.615f8dfa.js"><link rel="prefetch" href="/assets/js/80.af506ad1.js"><link rel="prefetch" href="/assets/js/81.8147dc63.js"><link rel="prefetch" href="/assets/js/82.d596b5b5.js"><link rel="prefetch" href="/assets/js/83.8b8464fc.js"><link rel="prefetch" href="/assets/js/84.94df2c90.js"><link rel="prefetch" href="/assets/js/85.6a1fce19.js"><link rel="prefetch" href="/assets/js/86.7fed48ad.js"><link rel="prefetch" href="/assets/js/87.8a65e797.js"><link rel="prefetch" href="/assets/js/88.91c2a3ae.js"><link rel="prefetch" href="/assets/js/89.685771e6.js"><link rel="prefetch" href="/assets/js/9.5432b7e3.js"><link rel="prefetch" href="/assets/js/90.2c9acfca.js"><link rel="prefetch" href="/assets/js/91.c246a84c.js"><link rel="prefetch" href="/assets/js/92.9e0e0bc4.js"><link rel="prefetch" href="/assets/js/93.91ade19e.js"><link rel="prefetch" href="/assets/js/94.57275978.js"><link rel="prefetch" href="/assets/js/95.9417a38f.js"><link rel="prefetch" href="/assets/js/96.7ed5489e.js"><link rel="prefetch" href="/assets/js/97.4ef9d211.js"><link rel="prefetch" href="/assets/js/98.bbe7aad9.js"><link rel="prefetch" href="/assets/js/99.a3813c70.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.a427ee9b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">duangdong的qa</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/js/" class="nav-link">
+  JS方面
+</a></div><div class="nav-item"><a href="/webpack/" class="nav-link router-link-active">
+  Webpack
+</a></div><div class="nav-item"><a href="/react/" class="nav-link">
+  React
+</a></div><div class="nav-item"><a href="/summary/" class="nav-link">
+  汇总
+</a></div><div class="nav-item"><a href="/algorithm/" class="nav-link">
+  常见算法
+</a></div><div class="nav-item"><a href="/performance/" class="nav-link">
+  性能优化
+</a></div><div class="nav-item"><a href="/http/" class="nav-link">
+  网络协议
+</a></div><div class="nav-item"><a href="/css/" class="nav-link">
+  CSS
+</a></div><div class="nav-item"><a href="/face-sutra/" class="nav-link">
+  QA
+</a></div><div class="nav-item"><a href="https://link.qdzhou.cn" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Home
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/js/" class="nav-link">
+  JS方面
+</a></div><div class="nav-item"><a href="/webpack/" class="nav-link router-link-active">
+  Webpack
+</a></div><div class="nav-item"><a href="/react/" class="nav-link">
+  React
+</a></div><div class="nav-item"><a href="/summary/" class="nav-link">
+  汇总
+</a></div><div class="nav-item"><a href="/algorithm/" class="nav-link">
+  常见算法
+</a></div><div class="nav-item"><a href="/performance/" class="nav-link">
+  性能优化
+</a></div><div class="nav-item"><a href="/http/" class="nav-link">
+  网络协议
+</a></div><div class="nav-item"><a href="/css/" class="nav-link">
+  CSS
+</a></div><div class="nav-item"><a href="/face-sutra/" class="nav-link">
+  QA
+</a></div><div class="nav-item"><a href="https://link.qdzhou.cn" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Home
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/webpack/" aria-current="page" class="sidebar-link">Webpack</a></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>1-优化</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/webpack/1-优化/Tree-Shaking的原理是什么.html" class="sidebar-link">Tree-Shaking的原理是什么</a></li><li><a href="/webpack/1-优化/core-js 是做什么用的.html" class="sidebar-link">core-js 是做什么用的？</a></li><li><a href="/webpack/1-优化/js代码压缩minify的原理是什么.html" class="active sidebar-link">js代码压缩minify的原理是什么</a></li><li><a href="/webpack/1-优化/如何提升webpack构建资源的速度.html" class="sidebar-link">如何提升 webpack 构建资源的速度</a></li></ul></section></li><li><a href="/webpack/tree-shaking.html" class="sidebar-link">介绍一下 tree shaking 及其工作原理</a></li><li><a href="/webpack/webpack 中的 loader 的作用是什么.html" class="sidebar-link">webpack 中的 loader 的作用是什么</a></li><li><a href="/webpack/webpack中什么是 HMR原理是什么.html" class="sidebar-link">webpack中什么是 HMR原理是什么</a></li><li><a href="/webpack/webpack中的 codespliting 是如何动态加载chunk的.html" class="sidebar-link">webpack中的 codespliting 是如何动态加载chunk的</a></li><li><a href="/webpack/webpack的runtime做了什么事情.html" class="sidebar-link">webpack的runtime做了什么事情</a></li><li><a href="/webpack/webpack相关问题及答案的整理.html" class="sidebar-link">webpack相关问题及答案的整理</a></li><li><a href="/webpack/什么是 AST及其应用.html" class="sidebar-link">什么是 AST及其应用</a></li><li><a href="/webpack/介绍下webpack 热更新原理，是如何做到在不刷新浏览器的前提下更新页面的.html" class="sidebar-link">介绍下webpack 热更新原理，是如何做到在不刷新浏览器的前提下更新页面的</a></li><li><a href="/webpack/如何加载 json-image 等非 Javascript 资源.html" class="sidebar-link">如何加载 json-image 等非 Javascript 资源</a></li><li><a href="/webpack/如何加载 style 样式资源.html" class="sidebar-link">如何加载 style 样式资源</a></li><li><a href="/webpack/如何将CommonJS转化为ESM.html" class="sidebar-link">如何将CommonJS转化为ESM</a></li><li><a href="/webpack/如何将打包后的 js 资源注入 html 中.html" class="sidebar-link">如何将打包后的 js 资源注入 html 中</a></li><li><a href="/webpack/对于已经 import 但未实际使用的模块使用 webpack 还会对它打包吗.html" class="sidebar-link">对于已经 import 但未实际使用的模块使用 webpack 还会对它打包吗</a></li><li><a href="/webpack/当问Webpack的时候他想知道什么.html" class="sidebar-link">Webpack能够做些什么</a></li><li><a href="/webpack/模块化中umd-cjs-esm有何区别.html" class="sidebar-link">模块化中 umd、cjs 和 esm 有何区别？</a></li><li><a href="/webpack/浏览器中如何使用原生的 ESM.html" class="sidebar-link">浏览器中如何使用原生的ESM</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="js代码压缩minify的原理是什么"><a href="#js代码压缩minify的原理是什么" class="header-anchor">#</a> js代码压缩minify的原理是什么</h1> <p>更多描述</p> <p>我们知道 <code>javascript</code> 代码经压缩 (uglify) 后，可以使体积变得更小，那它代码压缩的原理是什么。</p> <p>如果你来做这么一个功能的话，你会怎么去压缩一段 <code>js</code> 代码的体积</p> <p>通过 AST 分析，根据一些策略，来生成一颗更小体积的 AST 并生成代码。目前前端工程化中使用 <a href="https://terser.org/docs/api-reference#compress-options" target="_blank" rel="noopener noreferrer">terser (opens new window)<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>进行 JS 代码压缩。</p> <p>常见用以压缩 AST 的几种方案如下:</p> <h2 id="去除多余字符-空格-换行及注释"><a href="#去除多余字符-空格-换行及注释" class="header-anchor">#</a> 去除多余字符: 空格，换行及注释</h2> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// 对两个数求和</span>
+<span class="token keyword">function</span> <span class="token function">sum</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>此时文件大小是 <code>62 Byte</code>， <strong>一般来说中文会占用更大的空间。</strong></p> <p>多余的空白字符会占用大量的体积，如空格，换行符，另外注释也会占用文件体积。当我们把所有的空白符合注释都去掉之后，代码体积会得到减少。</p> <p><strong>去掉多余字符之后，文件大小已经变为 <code>30 Byte</code>。</strong> 压缩后代码如下:</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">function</span> <span class="token function">sum</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>替换掉多余字符后会有什么问题产生呢？</p> <p><strong>有，比如多行代码压缩到一行时要注意行尾分号。</strong></p> <h2 id="压缩变量名-变量名-函数名及属性名"><a href="#压缩变量名-变量名-函数名及属性名" class="header-anchor">#</a> 压缩变量名：变量名，函数名及属性名</h2> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">function</span> <span class="token function">sum</span><span class="token punctuation">(</span><span class="token parameter">first<span class="token punctuation">,</span> second</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> first <span class="token operator">+</span> second<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>如以上 <code>first</code> 与 <code>second</code> 在函数的作用域中，在作用域外不会引用它，此时可以让它们的变量名称更短。但是如果这是一个 <code>module</code> 中，<code>sum</code> 这个函数也不会被导出呢？那可以把这个函数名也缩短。</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// 压缩: 缩短变量名</span>
+<span class="token keyword">function</span> <span class="token function">sum</span><span class="token punctuation">(</span><span class="token parameter">x<span class="token punctuation">,</span> y</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> x <span class="token operator">+</span> y<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 再压缩: 去除空余字符</span>
+<span class="token keyword">function</span> <span class="token function">s</span><span class="token punctuation">(</span><span class="token parameter">x<span class="token punctuation">,</span> y</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> x <span class="token operator">+</span> y<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>在这个示例中，当完成代码压缩 (<code>compress</code>) 时，代码的混淆 (<code>mangle</code>) 也捎带完成。 <strong>但此时缩短变量的命名也需要 AST 支持，不至于在作用域中造成命名冲突。</strong></p> <h2 id="解析程序逻辑-合并声明以及布尔值简化"><a href="#解析程序逻辑-合并声明以及布尔值简化" class="header-anchor">#</a> 解析程序逻辑：合并声明以及布尔值简化</h2> <p>通过分析代码逻辑，可对代码改写为更精简的形式。</p> <p>合并声明的示例如下：</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// 压缩前</span>
+<span class="token keyword">const</span> a <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> b <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 压缩后</span>
+<span class="token keyword">const</span> a <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">,</span>
+  b <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">;</span>
+</code></pre></div><p>布尔值简化的示例如下：</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// 压缩前</span>
+<span class="token operator">!</span>b <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>c <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>d <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>e<span class="token punctuation">;</span>
+
+<span class="token comment">// 压缩后</span>
+<span class="token operator">!</span><span class="token punctuation">(</span>b <span class="token operator">||</span> c <span class="token operator">||</span> d <span class="token operator">||</span> e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="解析程序逻辑-编译预计算"><a href="#解析程序逻辑-编译预计算" class="header-anchor">#</a> 解析程序逻辑: 编译预计算</h2> <p>在编译期进行计算，减少运行时的计算量，如下示例:</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// 压缩前</span>
+<span class="token keyword">const</span> <span class="token constant">ONE_YEAR</span> <span class="token operator">=</span> <span class="token number">365</span> <span class="token operator">*</span> <span class="token number">24</span> <span class="token operator">*</span> <span class="token number">60</span> <span class="token operator">*</span> <span class="token number">60</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 压缩后</span>
+<span class="token keyword">const</span> <span class="token constant">ONE_YAAR</span> <span class="token operator">=</span> <span class="token number">31536000</span><span class="token punctuation">;</span>
+</code></pre></div><p>以及一个更复杂的例子，简直是杀手锏级别的优化。</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// 压缩前</span>
+<span class="token keyword">function</span> <span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;hello, world&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 压缩后</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;hello, world&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">5/7/2022, 3:27:30 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/webpack/1-优化/core-js 是做什么用的.html" class="prev">
+        core-js 是做什么用的？
+      </a></span> <span class="next"><a href="/webpack/1-优化/如何提升webpack构建资源的速度.html">
+        如何提升 webpack 构建资源的速度
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.cc29bea5.js" defer></script><script src="/assets/js/2.83e79809.js" defer></script><script src="/assets/js/127.19752fc6.js" defer></script>
+  </body>
+</html>

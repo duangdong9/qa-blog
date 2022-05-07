@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>送你 54 道 JavaScript 面试题 | duangdong的qa</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/logo.png">
+    <link rel="manifest" href="/manifest.json">
+    <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?0088ce24040b03f2947322ab31d23414";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+    <script>
+  var _hmt = _hmt || [];
+  _hmt.push(['_requirePlugin', 'UrlChangeTracker', {
+    shouldTrackUrlChange: function (newPath, oldPath) {
+      newPath = newPath.split('#')[0];
+      oldPath = oldPath.split('#')[0];
+      return newPath != oldPath;
+    }}
+  ]);
+  </script>
+    <meta name="description" content="前端QA集锦">
+    <meta name="keywords" content="qd-blog,js,vuepress,leetcode,react,react进阶,css,js进阶,react性能优化,js设计模式">
+    
+    <link rel="preload" href="/assets/css/0.styles.a427ee9b.css" as="style"><link rel="preload" href="/assets/js/app.cc29bea5.js" as="script"><link rel="preload" href="/assets/js/2.83e79809.js" as="script"><link rel="preload" href="/assets/js/118.8e9169d6.js" as="script"><link rel="prefetch" href="/assets/js/10.cdef3e61.js"><link rel="prefetch" href="/assets/js/100.9de46115.js"><link rel="prefetch" href="/assets/js/101.70ad4a27.js"><link rel="prefetch" href="/assets/js/102.ff0729c2.js"><link rel="prefetch" href="/assets/js/103.b61f3d8a.js"><link rel="prefetch" href="/assets/js/104.94754019.js"><link rel="prefetch" href="/assets/js/105.cf6eaddb.js"><link rel="prefetch" href="/assets/js/106.09607941.js"><link rel="prefetch" href="/assets/js/107.eb6aad92.js"><link rel="prefetch" href="/assets/js/108.5fb05fc2.js"><link rel="prefetch" href="/assets/js/109.02705239.js"><link rel="prefetch" href="/assets/js/11.e19708ce.js"><link rel="prefetch" href="/assets/js/110.5b97d932.js"><link rel="prefetch" href="/assets/js/111.1741cbc8.js"><link rel="prefetch" href="/assets/js/112.91e34053.js"><link rel="prefetch" href="/assets/js/113.38b87fa3.js"><link rel="prefetch" href="/assets/js/114.69942d7f.js"><link rel="prefetch" href="/assets/js/115.5010afa8.js"><link rel="prefetch" href="/assets/js/116.c66bced5.js"><link rel="prefetch" href="/assets/js/117.61ecb793.js"><link rel="prefetch" href="/assets/js/119.5b28750b.js"><link rel="prefetch" href="/assets/js/12.cce41bff.js"><link rel="prefetch" href="/assets/js/120.2cdd2d50.js"><link rel="prefetch" href="/assets/js/121.9bee1240.js"><link rel="prefetch" href="/assets/js/122.6a5d2b8a.js"><link rel="prefetch" href="/assets/js/123.242cf32a.js"><link rel="prefetch" href="/assets/js/124.0b76dfb5.js"><link rel="prefetch" href="/assets/js/125.c1e29722.js"><link rel="prefetch" href="/assets/js/126.9664677c.js"><link rel="prefetch" href="/assets/js/127.19752fc6.js"><link rel="prefetch" href="/assets/js/128.dd9e958a.js"><link rel="prefetch" href="/assets/js/129.84a3561e.js"><link rel="prefetch" href="/assets/js/13.c253f220.js"><link rel="prefetch" href="/assets/js/130.a08a6ecf.js"><link rel="prefetch" href="/assets/js/131.9e32d49f.js"><link rel="prefetch" href="/assets/js/132.0ae0b256.js"><link rel="prefetch" href="/assets/js/133.060204a8.js"><link rel="prefetch" href="/assets/js/134.15ce6cca.js"><link rel="prefetch" href="/assets/js/135.7d821d3b.js"><link rel="prefetch" href="/assets/js/136.f54c3393.js"><link rel="prefetch" href="/assets/js/137.73f8f3cb.js"><link rel="prefetch" href="/assets/js/138.3fcd68c2.js"><link rel="prefetch" href="/assets/js/139.a361e3fb.js"><link rel="prefetch" href="/assets/js/14.a84fbe4e.js"><link rel="prefetch" href="/assets/js/140.d6436f88.js"><link rel="prefetch" href="/assets/js/141.835fd3c3.js"><link rel="prefetch" href="/assets/js/142.6d7f1b6a.js"><link rel="prefetch" href="/assets/js/143.b59d5138.js"><link rel="prefetch" href="/assets/js/144.a91c5d7c.js"><link rel="prefetch" href="/assets/js/145.a82b970b.js"><link rel="prefetch" href="/assets/js/15.b54e6f93.js"><link rel="prefetch" href="/assets/js/16.ccb68524.js"><link rel="prefetch" href="/assets/js/17.685e3630.js"><link rel="prefetch" href="/assets/js/18.047549bf.js"><link rel="prefetch" href="/assets/js/19.0f4f96d2.js"><link rel="prefetch" href="/assets/js/20.b7f58fdf.js"><link rel="prefetch" href="/assets/js/21.cd536870.js"><link rel="prefetch" href="/assets/js/22.e6a2b54c.js"><link rel="prefetch" href="/assets/js/23.8761d4ef.js"><link rel="prefetch" href="/assets/js/24.3a10f654.js"><link rel="prefetch" href="/assets/js/25.299ff32c.js"><link rel="prefetch" href="/assets/js/26.2b06449f.js"><link rel="prefetch" href="/assets/js/27.eb2c15d0.js"><link rel="prefetch" href="/assets/js/28.3bb78046.js"><link rel="prefetch" href="/assets/js/29.26d0768b.js"><link rel="prefetch" href="/assets/js/3.8c6e4674.js"><link rel="prefetch" href="/assets/js/30.cb6d6f37.js"><link rel="prefetch" href="/assets/js/31.619debb1.js"><link rel="prefetch" href="/assets/js/32.5a01de56.js"><link rel="prefetch" href="/assets/js/33.93ba32f7.js"><link rel="prefetch" href="/assets/js/34.2ff74100.js"><link rel="prefetch" href="/assets/js/35.cdcf2ef2.js"><link rel="prefetch" href="/assets/js/36.1baecf5e.js"><link rel="prefetch" href="/assets/js/37.4002681b.js"><link rel="prefetch" href="/assets/js/38.0e84f132.js"><link rel="prefetch" href="/assets/js/39.215ee9b9.js"><link rel="prefetch" href="/assets/js/4.9d6db3cd.js"><link rel="prefetch" href="/assets/js/40.21802a7c.js"><link rel="prefetch" href="/assets/js/41.c772582d.js"><link rel="prefetch" href="/assets/js/42.5ef2d435.js"><link rel="prefetch" href="/assets/js/43.71deafdf.js"><link rel="prefetch" href="/assets/js/44.2acd6f92.js"><link rel="prefetch" href="/assets/js/45.8cf8ea01.js"><link rel="prefetch" href="/assets/js/46.a4a4f4ba.js"><link rel="prefetch" href="/assets/js/47.93b271ca.js"><link rel="prefetch" href="/assets/js/48.1e220ef7.js"><link rel="prefetch" href="/assets/js/49.5112acbe.js"><link rel="prefetch" href="/assets/js/5.9636b620.js"><link rel="prefetch" href="/assets/js/50.ea75d63c.js"><link rel="prefetch" href="/assets/js/51.ba8f6e8d.js"><link rel="prefetch" href="/assets/js/52.525952af.js"><link rel="prefetch" href="/assets/js/53.fbef089c.js"><link rel="prefetch" href="/assets/js/54.e36b03e8.js"><link rel="prefetch" href="/assets/js/55.1f8e914f.js"><link rel="prefetch" href="/assets/js/56.84d8db76.js"><link rel="prefetch" href="/assets/js/57.34d4b4f7.js"><link rel="prefetch" href="/assets/js/58.05df60b8.js"><link rel="prefetch" href="/assets/js/59.c50bb43f.js"><link rel="prefetch" href="/assets/js/6.26dc4787.js"><link rel="prefetch" href="/assets/js/60.2b363427.js"><link rel="prefetch" href="/assets/js/61.68061681.js"><link rel="prefetch" href="/assets/js/62.5ad03807.js"><link rel="prefetch" href="/assets/js/63.fd77d2f7.js"><link rel="prefetch" href="/assets/js/64.d16973e2.js"><link rel="prefetch" href="/assets/js/65.5a919fcc.js"><link rel="prefetch" href="/assets/js/66.09a5b755.js"><link rel="prefetch" href="/assets/js/67.911ca7b3.js"><link rel="prefetch" href="/assets/js/68.864e96c7.js"><link rel="prefetch" href="/assets/js/69.bc28ceb9.js"><link rel="prefetch" href="/assets/js/7.4a3e9bcd.js"><link rel="prefetch" href="/assets/js/70.a2d51b70.js"><link rel="prefetch" href="/assets/js/71.85cf7cc4.js"><link rel="prefetch" href="/assets/js/72.61cbf371.js"><link rel="prefetch" href="/assets/js/73.bbe26749.js"><link rel="prefetch" href="/assets/js/74.0c80f634.js"><link rel="prefetch" href="/assets/js/75.a627cf37.js"><link rel="prefetch" href="/assets/js/76.82d762a4.js"><link rel="prefetch" href="/assets/js/77.f1dd0c86.js"><link rel="prefetch" href="/assets/js/78.0c9ca678.js"><link rel="prefetch" href="/assets/js/79.4b4bdd67.js"><link rel="prefetch" href="/assets/js/8.615f8dfa.js"><link rel="prefetch" href="/assets/js/80.af506ad1.js"><link rel="prefetch" href="/assets/js/81.8147dc63.js"><link rel="prefetch" href="/assets/js/82.d596b5b5.js"><link rel="prefetch" href="/assets/js/83.8b8464fc.js"><link rel="prefetch" href="/assets/js/84.94df2c90.js"><link rel="prefetch" href="/assets/js/85.6a1fce19.js"><link rel="prefetch" href="/assets/js/86.7fed48ad.js"><link rel="prefetch" href="/assets/js/87.8a65e797.js"><link rel="prefetch" href="/assets/js/88.91c2a3ae.js"><link rel="prefetch" href="/assets/js/89.685771e6.js"><link rel="prefetch" href="/assets/js/9.5432b7e3.js"><link rel="prefetch" href="/assets/js/90.2c9acfca.js"><link rel="prefetch" href="/assets/js/91.c246a84c.js"><link rel="prefetch" href="/assets/js/92.9e0e0bc4.js"><link rel="prefetch" href="/assets/js/93.91ade19e.js"><link rel="prefetch" href="/assets/js/94.57275978.js"><link rel="prefetch" href="/assets/js/95.9417a38f.js"><link rel="prefetch" href="/assets/js/96.7ed5489e.js"><link rel="prefetch" href="/assets/js/97.4ef9d211.js"><link rel="prefetch" href="/assets/js/98.bbe7aad9.js"><link rel="prefetch" href="/assets/js/99.a3813c70.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.a427ee9b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">duangdong的qa</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/js/" class="nav-link">
+  JS方面
+</a></div><div class="nav-item"><a href="/webpack/" class="nav-link">
+  Webpack
+</a></div><div class="nav-item"><a href="/react/" class="nav-link">
+  React
+</a></div><div class="nav-item"><a href="/summary/" class="nav-link router-link-active">
+  汇总
+</a></div><div class="nav-item"><a href="/algorithm/" class="nav-link">
+  常见算法
+</a></div><div class="nav-item"><a href="/performance/" class="nav-link">
+  性能优化
+</a></div><div class="nav-item"><a href="/http/" class="nav-link">
+  网络协议
+</a></div><div class="nav-item"><a href="/css/" class="nav-link">
+  CSS
+</a></div><div class="nav-item"><a href="/face-sutra/" class="nav-link">
+  QA
+</a></div><div class="nav-item"><a href="https://link.qdzhou.cn" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Home
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/js/" class="nav-link">
+  JS方面
+</a></div><div class="nav-item"><a href="/webpack/" class="nav-link">
+  Webpack
+</a></div><div class="nav-item"><a href="/react/" class="nav-link">
+  React
+</a></div><div class="nav-item"><a href="/summary/" class="nav-link router-link-active">
+  汇总
+</a></div><div class="nav-item"><a href="/algorithm/" class="nav-link">
+  常见算法
+</a></div><div class="nav-item"><a href="/performance/" class="nav-link">
+  性能优化
+</a></div><div class="nav-item"><a href="/http/" class="nav-link">
+  网络协议
+</a></div><div class="nav-item"><a href="/css/" class="nav-link">
+  CSS
+</a></div><div class="nav-item"><a href="/face-sutra/" class="nav-link">
+  QA
+</a></div><div class="nav-item"><a href="https://link.qdzhou.cn" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Home
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/summary/" aria-current="page" class="sidebar-link">八股文</a></li><li><a href="/summary/20+Vue面试题整理.html" class="sidebar-link">20+Vue面试题整理</a></li><li><a href="/summary/60道.html" class="sidebar-link">前端经典面试题</a></li><li><a href="/summary/一份热乎乎的滴滴前端面经.html" class="sidebar-link">一份热乎乎的滴滴前端面经</a></li><li><a href="/summary/你可能需要的三轮网易面经.html" class="sidebar-link">你可能需要的三轮网易面经</a></li><li><a href="/summary/听说你对packagejson很熟.html" class="sidebar-link">面试官：听说你对package.json很熟？</a></li><li><a href="/summary/新出炉大厂面试题100道整理.html" class="sidebar-link">新出炉大厂面试题100道整理</a></li><li><a href="/summary/牛客.html" class="sidebar-link">牛客网最新百道前端 JavaScript 笔试题</a></li><li><a href="/summary/脚撕专有钉钉前端面试题.html" class="sidebar-link">脚撕专有钉钉前端面试题</a></li><li><a href="/summary/送你 54 道 JavaScript 面试题.html" class="active sidebar-link">送你 54 道 JavaScript 面试题</a></li><li><a href="/summary/送你21道高频JavaScript手写面试题.html" class="sidebar-link">送你21道高频JavaScript手写面试题</a></li><li><a href="/summary/阿里字节快手面经个人成长经验分享.html" class="sidebar-link">2021 阿里字节快手面经个人成长经验分享</a></li><li><a href="/summary/阿里腾讯面试梳理.html" class="sidebar-link">阿里腾讯面试梳理 &amp; 个人成长经历分享</a></li><li><a href="/summary/面经.html" class="sidebar-link">一些面经</a></li><li><a href="/summary/高频前端面试问题及答案整理.html" class="sidebar-link">高频前端面试问题及答案整理</a></li><li><a href="/summary/高频考点浏览器面试题.html" class="sidebar-link">高频考点浏览器面试题</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="送你-54-道-javascript-面试题"><a href="#送你-54-道-javascript-面试题" class="header-anchor">#</a> 送你 54 道 JavaScript 面试题</h2> <blockquote><p><a href="https://mp.weixin.qq.com/s/ejdZjDjk87xr-VBYNVzYQw" target="_blank" rel="noopener noreferrer">https://mp.weixin.qq.com/s/ejdZjDjk87xr-VBYNVzYQw<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></blockquote> <h3 id="前言"><a href="#前言" class="header-anchor">#</a> 前言</h3> <blockquote><p>大家好，我叫TianTian，一个爱瞎折腾，爱算法的Acmer爱好者，梳理一些比较好的JS题目，复习完还是收获很大，分享给大家❤️</p></blockquote> <p>题目主要来自看到过的易错题，还有经典的<strong>44道 JavaScript Puzzlers!</strong>，出自原文链接</p> <p><strong>stackoverflow</strong> 这上面有很多Questions不错的，可以好好补一补基础</p> <blockquote><p>JS易错题暂时很长一段时间就不更新啦，TypeScript都出来了，TS真香</p> <p>➡️给个小建议，可以先看完第一题，要是没有问题的话，后面的基本上也可以跳过</p></blockquote> <p>GitHub仓库点这里</p> <p>开始吧👇</p> <h3 id="vs-操作符优先级"><a href="#vs-操作符优先级" class="header-anchor">#</a> <code>.</code> VS <code>=</code> 操作符优先级</h3> <div class="language- extra-class"><pre class="language-text"><code>  let a = {n : 1};
+        let b = a;
+        a.x = a = {n: 2};
+
+        
+        console.log(a.x)
+        console.log(b.x)
+</code></pre></div><p>输出是什么呢？</p> <p>真的想明白了吗？</p> <p><strong>答案</strong></p> <p>undefined</p> <p>{ n : 2}</p> <h3 id="你真的了解作用域吗"><a href="#你真的了解作用域吗" class="header-anchor">#</a> 你真的了解作用域吗</h3> <div class="language- extra-class"><pre class="language-text"><code>  var a = 0,  
+            b = 0;
+        function A(a) {
+            A = function (b) {
+                console.log(a + b++)
+            }
+            console.log(a++)
+        }
+        A(1)
+        A(2)
+</code></pre></div><p>留给你们思考，我可是第一遍就做错了(；′⌒`)</p> <p><strong>答案 1 4</strong></p> <p>可以好好想一想，你会茅塞顿开的。</p> <h3 id="类数组的length"><a href="#类数组的length" class="header-anchor">#</a> 类数组的length</h3> <div class="language- extra-class"><pre class="language-text"><code>  var obj = {
+            &quot;2&quot; : 3,
+            &quot;3&quot; : 4,
+            &quot;length&quot; : 2,
+            &quot;splice&quot; : Array.prototype.splice,
+            &quot;push&quot; : Array.prototype.push
+        }
+        obj.push(1)
+        obj.push(2)
+        console.log(obj)
+</code></pre></div><p>这段代码的执行结果？</p> <div class="language- extra-class"><pre class="language-text"><code>答案：Object(4) [empty × 2, 1, 2, splice: ƒ, push: ƒ]
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>解释就是第一次使用push,obj对象的push方法设置obj[2] = 1,obj.length++
+
+解释就是第一次使用push,obj对象的push方法设置obj[3] = 2,obj.length++
+
+使用console.log()方法输出的时候，因为obj上有length属性和splice方法，故将其作为数组输出打印
+
+打印时因为数组未设置下标为0和1的值，故打印的结果就是empty，主动获取obj[0] = undefined
+</code></pre></div><h3 id="非匿名自执行函数-函数名只读"><a href="#非匿名自执行函数-函数名只读" class="header-anchor">#</a> 非匿名自执行函数，函数名只读</h3> <div class="language- extra-class"><pre class="language-text"><code>  var b = 10;
+        (function b(){
+            // 'use strict'
+            b = 20
+            console.log(b)
+        })()
+</code></pre></div><p>输出的结果是什么？</p> <div class="language- extra-class"><pre class="language-text"><code>Function b
+- 如标题一样，非匿名自执行函数，函数名不可以修改，严格模式下会TypeError，
+- 非严格模式下，不报错，修改也没有用。
+- 查找变量b时,立即执行函数会有内部作用域，会先去查找是否有b变量的声明，有的话，直接复制
+- 确实发现具名函数Function b(){} 所以就拿来做b的值
+- IIFE的函数内部无法进行复制(类似于const)
+</code></pre></div><h3 id="非匿名自执行函数-ii"><a href="#非匿名自执行函数-ii" class="header-anchor">#</a> 非匿名自执行函数 II</h3> <div class="language- extra-class"><pre class="language-text"><code>  var b = 10;
+        (function b(){
+            // 'use strict'
+            var b = 20
+            console.log(window.b) 
+            console.log(b)
+        })()
+</code></pre></div><p>输出是多少呢？</p> <div class="language- extra-class"><pre class="language-text"><code>10
+20
+// 访问b变量的时候,发现var b = 20;在当前作用域中找到了b变量，于是把b的值作为20
+</code></pre></div><h3 id="非匿名自执行函数-iii"><a href="#非匿名自执行函数-iii" class="header-anchor">#</a> 非匿名自执行函数 III</h3> <div class="language- extra-class"><pre class="language-text"><code>  var b = 10;
+        (function b(){
+            console.log(b)
+            b = 5
+            console.log(window.b)
+            var b = 20
+            console.log(b)
+        })()
+</code></pre></div><p>输出的结果是多少呢？</p> <p>这个问题应该不难，就留给你们思考吧</p> <h3 id="变量提升"><a href="#变量提升" class="header-anchor">#</a> 变量提升</h3> <div class="language- extra-class"><pre class="language-text"><code>var name = 'World!';
+(function () {
+    if (typeof name === 'undefined') {
+        var name = 'Jack';
+        console.log('Goodbye ' + name);
+    } else {
+        console.log('Hello ' + name);
+    }
+})();
+</code></pre></div><p>在 JavaScript中， Fun 和 var 会被提升</p> <p>相当于</p> <div class="language- extra-class"><pre class="language-text"><code>var name = 'World!';
+(function () {
+    var name;
+    if (typeof name === 'undefined') {
+        name = 'Jack';
+        console.log('Goodbye ' + name);
+    } else {
+        console.log('Hello ' + name);
+    }
+})();
+</code></pre></div><p>巩固一下：</p> <div class="language- extra-class"><pre class="language-text"><code> var str = 'World!';   
+    (function (name) {
+    if (typeof name === 'undefined') {
+        var name = 'Jack';
+        console.log('Goodbye ' + name);
+    } else {
+        console.log('Hello ' + name);
+    }
+    })(str);
+    答案：Hello World 因为name已经变成函数内局部变量
+</code></pre></div><h3 id="最大整数"><a href="#最大整数" class="header-anchor">#</a> 最大整数</h3> <div class="language- extra-class"><pre class="language-text"><code>var END = Math.pow(2, 53);
+var START = END - 100;
+var count = 0;
+for (var i = START; i &lt;= END; i++) {
+    count++;
+}
+console.log(count);
+</code></pre></div><p>一个知识点:Infinity</p> <div class="language- extra-class"><pre class="language-text"><code>在 JS 里, Math.pow(2, 53) == 9007199254740992 是可以表示的最大值. 最大值加一还是最大值. 所以循环不会停.
+</code></pre></div><h3 id="稀疏数组与密数组"><a href="#稀疏数组与密数组" class="header-anchor">#</a> 稀疏数组与密数组</h3> <div class="language- extra-class"><pre class="language-text"><code>var ary = [0,1,2];
+ary[10] = 10;
+ary.filter(function(x) { return x === undefined;});
+</code></pre></div><p>执行结果如何呢？</p> <p>做这个题目，你需要了解稀疏数组和密集数组</p> <ul><li>译 JavaScript中的稀疏数组与密集数组</li> <li>Array/filter</li></ul> <p>看过源码的同学应该知道，filter源码中，会去判断数组的这个索引值是不是数组的一个属性，有兴趣的同学可以看看我写的这篇关于数组的：[干货👍]从详细操作js数组到浅析v8中array.js</p> <div class="language- extra-class"><pre class="language-text"><code>0 in ary; =&gt; true
+3 in ary; =&gt; false
+10 in ary; =&gt; true
+也就是说 从 3 - 9 都是没有初始化的'坑'!, 这些索引并不存在与数组中. 在 array 的函数调用的时候是会跳过这些'坑'的.
+</code></pre></div><p>所以答案就是[]</p> <h3 id="浮点运算"><a href="#浮点运算" class="header-anchor">#</a> 浮点运算</h3> <div class="language- extra-class"><pre class="language-text"><code>var two   = 0.2
+var one   = 0.1
+var eight = 0.8
+var six   = 0.6
+[two - one == one, eight - six == two]
+</code></pre></div><p>你认为结果是多少呢？面试遇到这个问题，应该怎么回答呢？</p> <div class="language- extra-class"><pre class="language-text"><code>[true,false]
+</code></pre></div><p>可以看看这些文章：</p> <ul><li>探寻 JavaScript 精度问题以及解决方案</li> <li>从0.1+0.2=0.30000000000000004再看JS中的Number类型</li></ul> <h3 id="switch"><a href="#switch" class="header-anchor">#</a> Switch</h3> <div class="language- extra-class"><pre class="language-text"><code>function showCase(value) {
+    switch(value) {
+    case 'A':
+        console.log('Case A');
+        break;
+    case 'B':
+        console.log('Case B');
+        break;
+    case undefined:
+        console.log('undefined');
+        break;
+    default:
+        console.log('Do not know!');
+    }
+}
+showCase(new String('A'));
+</code></pre></div><p>运行结果如何呢？</p> <div class="language- extra-class"><pre class="language-text"><code>switch 是严格比较, String 实例和 字符串不一样.
+答案自然是'Do not know' 
+所以一般情况下,写switch语句，也建议写default
+</code></pre></div><p>String(&quot;A&quot;)</p> <div class="language- extra-class"><pre class="language-text"><code>function showCase2(value) {
+    switch(value) {
+    case 'A':
+        console.log('Case A');
+        break;
+    case 'B':
+        console.log('Case B');
+        break;
+    case undefined:
+        console.log('undefined');
+        break;
+    default:
+        console.log('Do not know!');
+    }
+}
+showCase2(String('A'));
+</code></pre></div><p>运行结果呢？</p> <div class="language- extra-class"><pre class="language-text"><code>答案：Case A
+解析：String('A')就是返回一个字符串
+</code></pre></div><h3 id="运算符"><a href="#运算符" class="header-anchor">#</a> %运算符</h3> <div class="language- extra-class"><pre class="language-text"><code>function isOdd(num) {
+    return num % 2 == 1;
+}
+function isEven(num) {
+    return num % 2 == 0;
+}
+function isSane(num) {
+    return isEven(num) || isOdd(num);
+}
+var values = [7, 4, '13', -9, Infinity];
+values.map(isSane);
+</code></pre></div><p>运行的结果如何呢？</p> <div class="language- extra-class"><pre class="language-text"><code>答案：[true, true, true, false, false]
+解析：%如果不是数值会调用Number（）去转化
+     '13' % 2       // 1
+      Infinity % 2  //NaN  Infinity 是无穷大
+      -9 % 2        // -1
+巩固：9 % -2        // 1   余数的正负号随第一个操作数
+</code></pre></div><h3 id="数组的原型是什么"><a href="#数组的原型是什么" class="header-anchor">#</a> 数组的原型是什么</h3> <div class="language- extra-class"><pre class="language-text"><code>Array.isArray( Array.prototype )
+</code></pre></div><p>这段代码的执行结果？</p> <div class="language- extra-class"><pre class="language-text"><code>答案：true
+解析：Array.prototype是一个数组
+数组的原型是数组，对象的原型是对象，函数的原型是函数
+</code></pre></div><h3 id="宽松相等"><a href="#宽松相等" class="header-anchor">#</a> 宽松相等 ==</h3> <div class="language- extra-class"><pre class="language-text"><code>[]==[]
+</code></pre></div><p>答案是什么呢</p> <div class="language- extra-class"><pre class="language-text"><code>答案：false
+解析：两个引用类型， ==比较的是引用地址
+</code></pre></div><h3 id="和-优先级"><a href="#和-优先级" class="header-anchor">#</a> == 和 !优先级</h3> <div class="language- extra-class"><pre class="language-text"><code>[]== ![] 
+</code></pre></div><p>结果是什么呢？</p> <div class="language- extra-class"><pre class="language-text"><code>(1)! 的优先级高于== ，右边Boolean([])是true,取返等于 false
+(2)一个引用类型和一个值去比较 把引用类型转化成值类型，左边0
+(3)所以 0 == false  答案是true
+</code></pre></div><h3 id="数字与字符串相加减"><a href="#数字与字符串相加减" class="header-anchor">#</a> 数字与字符串相加减</h3> <div class="language- extra-class"><pre class="language-text"><code>'5' + 3
+'5' - 3
+</code></pre></div><p>结果是多少呢？</p> <div class="language- extra-class"><pre class="language-text"><code>答案：53  2
+解析：加号有拼接功能，减号就是逻辑运算
+巩固：typeof (+&quot;1&quot;)   // &quot;number&quot; 对非数值+—常被用来做类型转换相当于Number()
+</code></pre></div><h3 id="一波骚操作"><a href="#一波骚操作" class="header-anchor">#</a> 一波骚操作  + - + + + - +</h3> <div class="language- extra-class"><pre class="language-text"><code>1 + - + + + - + 1
+</code></pre></div><p>结果是多少呢</p> <div class="language- extra-class"><pre class="language-text"><code>答案：2
+解析：+-又是一元加和减操作符号，就是数学里的正负号。负负得正哈。 
+巩固： 一元运算符还有一个常用的用法就是将自执行函数的function从函数声明变成表达式。
+      常用的有 + - ～ ！void
+      + function () { }
+      - function () { }
+      ~ function () { }
+      void function () { }
+</code></pre></div><h3 id="又是稀疏数组-array-prototype-map"><a href="#又是稀疏数组-array-prototype-map" class="header-anchor">#</a> 又是稀疏数组？Array.prototype.map()</h3> <div class="language- extra-class"><pre class="language-text"><code>var ary = Array(3);
+ary[0]=2
+ary.map(function(elem) { return '1'; });
+</code></pre></div><p>输出结果是多少呢？</p> <div class="language- extra-class"><pre class="language-text"><code>稀疏数组
+
+题目中的数组其实是一个长度为3, 但是没有内容的数组, array 上的操作会跳过这些未初始化的'坑'.
+
+所以答案是 [&quot;1&quot;, empty × 2]
+</code></pre></div><p>这里贴上 Array.prototype.map 的 polyfill.</p> <div class="language- extra-class"><pre class="language-text"><code>Array.prototype.map = function(callback, thisArg) {
+
+        var T, A, k;
+
+        if (this == null) {
+            throw new TypeError(' this is null or not defined');
+        }
+
+        var O = Object(this);
+        var len = O.length &gt;&gt;&gt; 0;
+        if (typeof callback !== 'function') {
+            throw new TypeError(callback + ' is not a function');
+        }
+        if (arguments.length &gt; 1) {
+            T = thisArg;
+        }
+        A = new Array(len);
+        k = 0;
+        while (k &lt; len) {
+            var kValue, mappedValue;
+            if (k in O) {
+                kValue = O[k];
+                mappedValue = callback.call(T, kValue, k, O);
+                A[k] = mappedValue;
+            }
+            k++;
+        }
+        return A;
+    };
+</code></pre></div><h3 id="js是如何存储"><a href="#js是如何存储" class="header-anchor">#</a> JS是如何存储</h3> <div class="language- extra-class"><pre class="language-text"><code>var a = 111111111111111110000,
+b = 1111;
+a + b;
+</code></pre></div><p>这段代码的执行结果？</p> <div class="language- extra-class"><pre class="language-text"><code>答案：11111111111111111000
+解析：在JavaScript中number类型在JavaScript中以64位（8byte）来存储。
+这64位中有符号位1位、指数位11位、实数位52位。
+2的53次方时，是最大值。
+其值为：9007199254740992（0x20000000000000）。
+超过这个值的话，运算的结果就会不对.
+</code></pre></div><h3 id="数组比较大小"><a href="#数组比较大小" class="header-anchor">#</a> 数组比较大小</h3> <div class="language- extra-class"><pre class="language-text"><code>var a = [1, 2, 3],
+    b = [1, 2, 3],
+    c = [1, 2, 4]
+a ==  b
+a === b
+a &gt;   c
+a &lt;   c
+</code></pre></div><p>这段代码的执行结果？</p> <div class="language- extra-class"><pre class="language-text"><code>答案：false, false, false, true
+解析：相等（==）和全等（===）还是比较引用地址
+     引用类型间比较大小是按照字典序比较，就是先比第一项谁大，相同再去比第二项。
+</code></pre></div><h3 id="三元运算符优先级"><a href="#三元运算符优先级" class="header-anchor">#</a> 三元运算符优先级</h3> <div class="language- extra-class"><pre class="language-text"><code>var val = 'smtg';
+console.log('Value is ' + (val === 'smtg') ? 'Something' : 'Nothing');
+</code></pre></div><p>这段代码的执行结果？</p> <div class="language- extra-class"><pre class="language-text"><code>答案：Something
+解析：字符串连接比三元运算有更高的优先级 
+     所以原题等价于 'Value is true' ? 'Somthing' : 'Nonthing' 
+     而不是 'Value   is' + (true ? 'Something' : 'Nonthing')
+巩固：
+    1 || fn() &amp;&amp; fn()   //1  
+    1 || 1 ? 2 : 3 ;    //2  
+</code></pre></div><h3 id="原型"><a href="#原型" class="header-anchor">#</a> 原型</h3> <div class="language- extra-class"><pre class="language-text"><code>var a = {}, b = Object.prototype;
+[a.prototype === b, Object.getPrototypeOf(a) === b] 
+</code></pre></div><p>执行结果是多少呢</p> <div class="language- extra-class"><pre class="language-text"><code>答案：false, true
+解析：Object 的实例是 a，a上并没有prototype属性
+     a的__poroto__ 指向的是Object.prototype，也就是Object.getPrototypeOf(a)。a的原型对象是b
+</code></pre></div><h3 id="原型ii"><a href="#原型ii" class="header-anchor">#</a> 原型II</h3> <div class="language- extra-class"><pre class="language-text"><code>function f() {}
+var a = f.prototype, b = Object.getPrototypeOf(f);
+a === b         
+</code></pre></div><p>这段代码的执行结果？</p> <div class="language- extra-class"><pre class="language-text"><code>答案：false
+解析：a是构造函数f的原型 ： {constructor: ƒ}
+b是实例f的原型对象 ： ƒ () { [native code] }
+</code></pre></div><h3 id="函数名称"><a href="#函数名称" class="header-anchor">#</a> 函数名称</h3> <div class="language- extra-class"><pre class="language-text"><code>function foo() { }
+var oldName = foo.name;
+foo.name = &quot;bar&quot;;
+[oldName, foo.name]     
+</code></pre></div><p>代码执行结果是什么？</p> <div class="language- extra-class"><pre class="language-text"><code>答案：[&quot;foo&quot;, &quot;foo&quot;]
+解析：函数的名字不可变.
+</code></pre></div><h3 id="typeof-null-null-instanceof-object"><a href="#typeof-null-null-instanceof-object" class="header-anchor">#</a> [typeof null, null instanceof Object]</h3> <div class="language- extra-class"><pre class="language-text"><code>答案：[&quot;object&quot;, false]
+解析：null代表空对象指针，所以typeof判断成一个对象。可以说JS设计上的一个BUG
+     instanceof 实际上判断的是对象上构造函数，null是空当然不可能有构造函数
+巩固：null == undefined //true    null === undefined //flase
+</code></pre></div><h3 id="_3-2-1-reduce-math-pow-reduce-math-pow"><a href="#_3-2-1-reduce-math-pow-reduce-math-pow" class="header-anchor">#</a> [ [3,2,1].reduce(Math.pow), [].reduce(Math.pow) ]</h3> <div class="language- extra-class"><pre class="language-text"><code>答案：Error
+解析：Math.pow (x , y)  x 的 y 次幂的值
+     reduce（fn,total）
+     fn (total, currentValue, currentIndex, arr) 
+         如果一个函数不传初始值，数组第一个组默认为初始值.
+         [3,2,1].reduce(Math.pow)
+         Math.pow(3,2) //9
+         Math.pow(9,1) //9
+
+巩固题,可以做一做：
+  [].reduce(Math.pow)       //空数组会报TypeError
+     [1].reduce(Math.pow)      //只有初始值就不会执行回调函数，直接返回1
+     [].reduce(Math.pow,1)     //只有初始值就不会执行回调函数，直接返回1
+     [2].reduce(Math.pow,3)    //传入初始值，执行回调函数，返回9
+</code></pre></div><h3 id="replace"><a href="#replace" class="header-anchor">#</a> replace</h3> <div class="language- extra-class"><pre class="language-text"><code>&quot;1 2 3&quot;.replace(/\d/g, parseInt)
+</code></pre></div><p>输出是什么呢？</p> <div class="language- extra-class"><pre class="language-text"><code>答案：&quot;1 NaN 3&quot;
+解析：replace() 回调函数的四个参数:
+      1、匹配项  
+      2、与模式中的子表达式匹配的字符串  
+      3、出现的位置  
+      4、stringObject 本身 。
+如果没有与子表达式匹配的项，第二参数为出现的位置.所以第一个参数是匹配项，第二个参数是位置
+ parseInt('1', 0)
+ parseInt('2', 2)  //2进制中不可能有2
+ parseInt('3', 4)
+</code></pre></div><h3 id="eval用法"><a href="#eval用法" class="header-anchor">#</a> eval用法</h3> <div class="language- extra-class"><pre class="language-text"><code>function f() {}
+var parent = Object.getPrototypeOf(f);
+f.name // ?
+parent.name // ?
+typeof eval(f.name) // ?
+typeof eval(parent.name) //  ?  
+</code></pre></div><p>这段代码的执行结果？</p> <div class="language- extra-class"><pre class="language-text"><code>答案：&quot;f&quot;, &quot;Empty&quot;, &quot;function&quot;, error
+解析：f的函数名就是f
+     parent是f原型对象的名字为&quot;&quot; ,
+     先计算eval(f.name) 为 f,f的数据类型是function
+     eval(parent.name) 为undefined, &quot;undefined&quot;
+</code></pre></div><h3 id="new-date"><a href="#new-date" class="header-anchor">#</a> new  Date()</h3> <div class="language- extra-class"><pre class="language-text"><code>var a = new Date(&quot;2014-03-19&quot;),
+b = new Date(2014, 03, 19);
+[a.getDay() === b.getDay(), a.getMonth() === b.getMonth()]
+</code></pre></div><p>这段代码的执行结果？</p> <div class="language- extra-class"><pre class="language-text"><code>答案：[false, false]
+解析：var a = new Date(&quot;2014-03-19&quot;)    //能够识别这样的字符串，返回想要的日期
+      Wed Mar 19 2014 08:00:00 GMT+0800 (CST)
+      b = new Date(2014, 03, 19);       //参数要按照索引来
+      Sat Apr 19 2014 00:00:00 GMT+0800 (CST)
+      月是从0索引，日期是从1 
+      getDay()是获取星期几
+      getMonth()是获取月份所以都不同
+巩固： [a.getDate() === b.getDate()] //true
+</code></pre></div><h3 id="new-date-ii"><a href="#new-date-ii" class="header-anchor">#</a> new  Date() II</h3> <div class="language- extra-class"><pre class="language-text"><code>var a = Date(0);
+var b = new Date(0);
+var c = new Date();
+[a === b, b === c, a === c]
+</code></pre></div><p>这段代码的执行结果？</p> <div class="language- extra-class"><pre class="language-text"><code>答案：[false, false, false]
+解析：当日期被作为构造函数调用时，它返回一个相对于划时代的对象（JAN 01 1970）。
+当参数丢失时，它返回当前日期。当它作为函数调用时，它返回当前时间的字符串表示形式。
+a是字符串   a === b // 数据类型都不同，肯定是false
+b是对象     b === c // 引用类型，比的是引用地址
+c也是对象   a === c // 数据类型都不同，肯定是false
+</code></pre></div><h3 id="new-date-iii"><a href="#new-date-iii" class="header-anchor">#</a> new  Date() III</h3> <div class="language- extra-class"><pre class="language-text"><code>var a = new Date(&quot;epoch&quot;)
+</code></pre></div><p>你认为结果是多少呢？</p> <div class="language- extra-class"><pre class="language-text"><code>答案：Invalid Date {}
+解析：您得到“无效日期”，这是一个实际的日期对象（一个日期的日期为true）。但无效。这是因为时间内部保持为一个数字，在这种情况下，它是NA。
+      在chrome上是undefined 
+      正确的是格式是var d = new Date(year, month, day, hours, minutes, seconds, milliseconds);
+</code></pre></div><h3 id="function-length"><a href="#function-length" class="header-anchor">#</a> Function.length</h3> <div class="language- extra-class"><pre class="language-text"><code>var a = Function.length,
+b = new Function().length
+a === b
+</code></pre></div><p>这段代码的执行结果是？</p> <div class="language- extra-class"><pre class="language-text"><code>答案：false
+解析：首先new在函数带（）时运算优先级和.一样所以从左向右执行
+     new Function() 的函数长度为0
+巩固：function fn () {
+         var a = 1;
+      }
+      console.log(fn.length) 
+      //0 fn和new Function()一样
+</code></pre></div><blockquote><p>要是看过往期的这篇文章[诚意满满✍]带你填一些JS容易出错的坑 就可以给我点个赞👍关注一下啦，下面的内容都是这篇文章的内容。</p></blockquote> <h3 id="_1-2-5-10-sort"><a href="#_1-2-5-10-sort" class="header-anchor">#</a> [1,2,5,10].sort()</h3> <p>不写回调函数的话，是按照什么排序呢？</p> <p>JavaScript默认使用字典序(alphanumeric)来排序。因此结果是[1,10,2,5]</p> <p>正确排序的话，应该[1,2,5,10].sort( (a,b) =&gt; a-b )</p> <h3 id="b-a-a-a"><a href="#b-a-a-a" class="header-anchor">#</a> &quot;b&quot; + &quot;a&quot; + +&quot;a&quot; + &quot;a&quot;</h3> <p>你认为输出是什么？</p> <p>上面的表达式相当于'b'+'a'+ (+'a')+'a'，因为（+'a'）是NaN，所以：</p> <p>'b'+'a'+ (+'a')+'a' = 'b'+'a'+ &quot;NaN&quot;+'a'='baNaNa'</p> <h3 id="闭包"><a href="#闭包" class="header-anchor">#</a> 闭包</h3> <p>这是一个经典JavaScript面试题</p> <div class="language- extra-class"><pre class="language-text"><code>  let res = new Array()
+        for(var i = 0; i &lt; 10; i++){
+            res.push(function(){
+                return console.log(i)
+            })
+        }
+        res[0]() 
+        res[1]()
+        res[2]()
+</code></pre></div><p>期望输出的是0,1,2,实际上却不会。原因就是涉及<strong>作用域</strong>，怎么解决呢？</p> <ul><li>[x] 使用let代替var，形成块级作用域</li> <li>[x] 使用bind函数。</li></ul> <div class="language- extra-class"><pre class="language-text"><code>res.push(console.log.bind(null, i))
+</code></pre></div><p>解法还有其他的，比如使用IIFE，形成私有作用域等等做法。</p> <h3 id="又一经典闭包问题"><a href="#又一经典闭包问题" class="header-anchor">#</a> 又一经典闭包问题</h3> <div class="language- extra-class"><pre class="language-text"><code>function fun(n,o) {
+  console.log(o)
+  return {
+    fun:function(m){
+      return fun(m,n);
+    }
+  };
+}
+var a = fun(0);  a.fun(1);  a.fun(2);  a.fun(3);//undefined,?,?,?
+var b = fun(0).fun(1).fun(2).fun(3);//undefined,?,?,?
+var c = fun(0).fun(1);  c.fun(2);  c.fun(3);//undefined,?,?,?
+</code></pre></div><p><strong>留给你们思考</strong></p> <h3 id="隐式转换"><a href="#隐式转换" class="header-anchor">#</a> 隐式转换</h3> <div class="language- extra-class"><pre class="language-text"><code>var a = [0];
+if (a) {
+  console.log(a == true);
+} else {
+  console.log(&quot;wut&quot;);
+}
+</code></pre></div><p>你们觉得答案是多少呢？这题涉及到隐式转换了，这个坑我自己的好好补一补</p> <p>// 答案：false</p> <p><strong>再来一道？</strong></p> <div class="language- extra-class"><pre class="language-text"><code>function fn() {
+    return 20;
+}
+console.log(fn + 10); // 输出结果是多少
+function fn() {
+    return 20;
+}
+fn.toString = function() {
+    return 10;
+}
+console.log(fn + 10);  // 输出结果是多少？
+function fn() {
+    return 20;
+}
+
+fn.toString = function() {
+    return 10;
+}
+
+fn.valueOf = function() {
+    return 5;
+}
+
+console.log(fn + 10); // 输出结果是多少？
+</code></pre></div><p><strong>说到底JS类型转换的好好补一补了</strong></p> <h3 id="你真的理解操作符吗"><a href="#你真的理解操作符吗" class="header-anchor">#</a> 你真的理解操作符吗</h3> <div class="language- extra-class"><pre class="language-text"><code>[1&lt;2&lt;3,3&lt;2&lt;1]
+//[false,false]
+//[true,true]
+//[false,true]
+//[true,false]
+</code></pre></div><p>选一个吧，比较操作符，赋值运算符优先级哪个更高呢？</p> <h3 id="_0-1-0-2-0-3"><a href="#_0-1-0-2-0-3" class="header-anchor">#</a> 0.1+0.2  !== 0.3  ?</h3> <p>面试的时候，问你这个问题，要是回答错误的话，估计面试官对基础很是怀疑！！！</p> <p>问你这个题目的时候，你可以牵扯出很多问题，比如JS如何存储小数的呢？比如聊一聊二进制，比如实际开发中，遇到精度的问题，你是怎么解决的，你有什么好办法。</p> <p>聊完这个，你可以牵扯出最大安全数，比如JavaScript的最大安全整数是多少，超出这个范围的话，怎么解决精度问题呢？</p> <p>ES规范中新提出的BigInt解决了什么问题呢，你又发现了BigInt中哪些坑呢？</p> <p>如何解决精度问题呢？</p> <p>这里推荐Number-Precision库，不到1K的体积。</p> <h3 id="arguments"><a href="#arguments" class="header-anchor">#</a> arguments</h3> <div class="language- extra-class"><pre class="language-text"><code>  function sidEffecting(ary) {
+            ary[0] = ary[2];
+        }
+        function bar(a, b, c) {
+            c = 10
+            sidEffecting(arguments);
+            return a + b + c;
+        }
+        function demo (arg) {
+            arg.name = 'new Name'
+        }
+        console.log(bar(2, 2, 2))
+</code></pre></div><p>涉及到ES6语法，这题答案肯定都会做是22，但是呢，稍微改变一下题目，就比较坑了….</p> <div class="language- extra-class"><pre class="language-text"><code>  function sidEffecting(ary) {
+            ary[0] = ary[2];
+        }
+        function bar(a, b, c = 4) {
+            c = 10
+            sidEffecting(arguments);
+            return a + b + c;
+        }
+        function demo (arg) {
+            arg.name = 'new Name'
+        }
+        console.log(bar(2, 2, 2))
+</code></pre></div><p>这个答案是多少呢？根据MDN上对argument有更加准确的定义，看argument</p> <blockquote><p>当非严格模式中的函数<strong>有</strong>包含剩余参数、默认参数和解构赋值，那么<code>arguments</code>对象中的值<strong>不会</strong>跟踪参数的值（反之亦然）。</p></blockquote> <p>找到这句话，bar函数存在默认参数，并且在非严格模式下，所以不会跟踪参数的值，自然结果就14</p> <p><strong>请读者细细体会</strong></p> <h3 id="浏览器懵逼史"><a href="#浏览器懵逼史" class="header-anchor">#</a> 浏览器懵逼史</h3> <div class="language- extra-class"><pre class="language-text"><code>  let demo1 = {class: &quot;Animal&quot;, name: 'sheet'};
+        console.log(demo1.class)
+</code></pre></div><p>比较流氓，这个跟浏览器相关，class是保留字（现在的话，class是关键字），答案并不要紧，重要的是自己在取属性名称的时候尽量避免保留字. 如果使用的话请加引号 a['class']。</p> <p><strong>保留字vs关键字</strong></p> <p>个人理解的话，关键字就是有特殊含义的，不用用作变量名。比如</p> <div class="language- extra-class"><pre class="language-text"><code>let class = 123;
+</code></pre></div><p>现在看来肯定报错，那有什么需要我们注意的呢？</p> <div class="language- extra-class"><pre class="language-text"><code>let undefined = 123;
+</code></pre></div><p>这样子并不会报错，这个跟浏览器有点关系，这样子看来undefined不是关键字。所以为了保险起见，<strong>建议大家在判断一个变量是不是未定义的话，尽量使用void 0 === undefined</strong>很有可能undefined会被当作是变量来赋值</p> <p><strong>void 0 值就是undefined</strong></p> <h3 id="_1-2-3-map-parseint"><a href="#_1-2-3-map-parseint" class="header-anchor">#</a> [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;].map(parseInt)</h3> <p>这个应该是经常遇见的题了，搞明白很简单，map函数怎么使用，parseInt函数怎么使用</p> <p>关于Array数组的话，我之前写了一篇文章，从<strong>源码角度解析大部分方法</strong></p> <p>点进去重温一遍：[干货👍]从详细操作js数组到浅析v8中array.js</p> <p>map接受两个参数，一个callback，一个this，即调用函数时this指向，其中callback回调函数是三个参数，一个currentValue，index，array；</p> <p>parseInt接受两个参数：string,radix(基数)</p> <p>返回NaN有两种情况</p> <ul><li><code>radix</code> 小于 <code>2</code> 或大于 <code>36</code> ，或</li> <li>第一个非空格字符不能转换为数字。</li> <li>当radix是0或者undefined时，又是特殊情况，具体异步MDN</li></ul> <div class="language- extra-class"><pre class="language-text"><code>parseInt('1', 0);
+parseInt('2', 1);
+parseInt('3', 2);
+</code></pre></div><p>两者结合的话，结果自然很明显，[1,NaN,NaN]</p> <h3 id="math-min-为什么比-math-max-大"><a href="#math-min-为什么比-math-max-大" class="header-anchor">#</a> Math.min() 为什么比 Math.max() 大？</h3> <div class="language- extra-class"><pre class="language-text"><code>  Math.min() &lt; Math.max() // false
+</code></pre></div><p>按照常规思路的话，应该是true，毕竟最小值应该小于最大值，但是实际情况是false</p> <p>原因：</p> <ul><li>Math.min 的参数是 0 个或者多个。如果是多个参数很容易理解，返回参数中最小的。</li> <li>如果是0个参数，或者没有参数，则返回 <strong>Infinity</strong>。</li> <li>而 Math.max() 没有传递参数时返回的是 -Infinity。</li></ul> <p>要是面试官问这个问题，额。。。。</p> <h3 id="concat-1-2-3"><a href="#concat-1-2-3" class="header-anchor">#</a> [].concat[1,2,3]</h3> <p>输出是什么?注意不是[].concat([1,2,3])</p> <div class="language- extra-class"><pre class="language-text"><code>// [1,2,3]
+
+// Uncaught SyntaxError: ....
+
+// undefined
+</code></pre></div><p>答案是undefined，原因是什么呢？</p> <ol><li><p>第一步计算[].concat,结果是Array.prototype.concat</p></li> <li><p>第二步执行一个逗号操作符，逗号操作符对它的每个操作对象求值（从左至右），然后返回最后一个操作对象的值。</p> <div class="language- extra-class"><pre class="language-text"><code>&gt;1,2,3
+返回3
+</code></pre></div></li> <li><p>第三步执行一个数组访问运算或属性访问运算</p></li></ol> <p>所以上面[].concat[1,2,3] 等价于Array.prototype.concat[3]</p> <p>那么结果自然就是 <code>undefined</code>。</p> <h3 id="_1-2-nan-3-indexof-nan"><a href="#_1-2-nan-3-indexof-nan" class="header-anchor">#</a> [1,2,NaN,3].indexOf(NaN)</h3> <p>//2 or -1</p> <ul><li>indexOf方法会进行严格相等判断</li> <li>NaN !== NaN</li></ul> <p>怎么办呢？</p> <div class="language- extra-class"><pre class="language-text"><code>let realIsNaN = value =&gt; typeof value === 'number' &amp;&amp; isNaN(value);
+</code></pre></div><p>先要判断类型，是因为字符串转换会先转换成数字，转换失败为 NaN。所以和 NaN 相等。</p> <div class="language- extra-class"><pre class="language-text"><code>isNaN('jjjj') —&gt; true
+</code></pre></div><p>第二种方法</p> <div class="language- extra-class"><pre class="language-text"><code>let realIsNaN = value =&gt; value !== value;
+</code></pre></div><h3 id="number-isfinite-isfinite"><a href="#number-isfinite-isfinite" class="header-anchor">#</a> Number.isFinite &amp; isFinite</h3> <div class="language- extra-class"><pre class="language-text"><code>Number.isFinite('0') === isFinite('0')
+
+Number.isFinite(0) === isFinite('0')
+</code></pre></div><p>打印结果是什么，能不能具体说一说？</p> <blockquote><p>Number.isFinite()检测有穷性的值，唯一和全局isFinite()函数相比，这个方法不会强制将一个非数值的参数转换成数值，这就意味着，只有数值类型的值，且是有穷的（finite），才返回 <code>true</code>。</p></blockquote> <p>自然答案就是 false,true</p> <h3 id="一道容易被人轻视的面试题"><a href="#一道容易被人轻视的面试题" class="header-anchor">#</a> 一道容易被人轻视的面试题</h3> <div class="language- extra-class"><pre class="language-text"><code>function Foo() {
+    getName = function () { alert (1); };
+    return this;
+}
+Foo.getName = function () { alert (2);};
+Foo.prototype.getName = function () { alert (3);};
+var getName = function () { alert (4);};
+function getName() { alert (5);}
+
+//请写出以下输出结果：
+Foo.getName();
+getName();
+Foo().getName();
+getName();
+new Foo.getName();
+new Foo().getName();
+new new Foo().getName();
+</code></pre></div><h3 id="push方法"><a href="#push方法" class="header-anchor">#</a> push方法</h3> <div class="language- extra-class"><pre class="language-text"><code>let newList = [1,2,3].push(4)
+console.log(newList.push(4))
+</code></pre></div><p>认为输出什么？</p> <p>// Error</p> <p>原因在于Array.prototype.push()返回的是新数组的长度，所以呢4.push(5)自然Error</p> <hr> <h3 id="自动分号插入"><a href="#自动分号插入" class="header-anchor">#</a> 自动分号插入</h3> <div class="language- extra-class"><pre class="language-text"><code>function foo1()
+{
+ return {
+     bar: &quot;hello&quot;
+ };
+}
+
+function foo2()
+{
+ return
+ {
+     bar: &quot;hello&quot;
+ };
+}
+var a=foo1();
+var b=foo2();
+console.log(a) //Object {bar: &quot;hello&quot;}
+console.log(b) //underfind
+//仔细看就知道了
+// 会在第10行加入一个`;`
+</code></pre></div><p>会在第10行自动加一个分号; 所以返回的就是undefined</p> <hr> <h3 id="let-var"><a href="#let-var" class="header-anchor">#</a> let var</h3> <div class="language- extra-class"><pre class="language-text"><code>function foo() {
+let a = b = 0;
+a++;
+return a;
+}
+foo();
+typeof a; // =&gt; ???
+typeof b; // =&gt; ???
+</code></pre></div><p>上面的let a = b = 0; 等价于 window.b  = 0, let a = b;</p> <hr> <h3 id="眼力题"><a href="#眼力题" class="header-anchor">#</a> 眼力题</h3> <div class="language- extra-class"><pre class="language-text"><code>const length = 4;
+const numbers = [];
+for (var i = 0; i &lt; length; i++);{
+  numbers.push(i + 1);
+}
+
+numbers; // =&gt; ???
+</code></pre></div><p>唯一需要注意的就是<code>for语句</code>后面带了<code>;</code>沙雕题</p> <p>加了<code>;</code>，会认为for执行完，所以指定的都是空语句，最后numbers为[5]</p> <hr> <h3 id="获取字符串中特定索引字符"><a href="#获取字符串中特定索引字符" class="header-anchor">#</a> 获取字符串中特定索引字符</h3> <div class="language- extra-class"><pre class="language-text"><code>console.log('Hello World'[4])
+</code></pre></div><p>使用的就是方括号表示法获取字符串特定索引的字符，值得注意的是，IE7低版本使用的是charAt()</p> <p>所以这题输出o</p> <hr> <h3 id=""><a href="#" class="header-anchor">#</a> !==</h3> <div class="language- extra-class"><pre class="language-text"><code>const name = 'TianTianUp'
+console.log(!typeof name === 'string')
+console.log(!typeof name === 'object')
+</code></pre></div><p>typeof name 返回的是 ’string‘, 字符串’string‘是一个truthy值。因此！typeof name 返回一个布尔值false。所以</p> <p>false === ’string'</p> <p>和 false === ’object‘返回false</p> <p>(检测一个类型的值话，我们应该使用 !==而不是!typeof)</p> <hr> <h3 id="foreach"><a href="#foreach" class="header-anchor">#</a> forEach</h3> <div class="language- extra-class"><pre class="language-text"><code>const nums = [1, 2, 3, 4, 5, 6];
+let firstEven;
+nums.forEach(n =&gt; {
+  if (n % 2 ===0 ) {
+    firstEven = n;
+    return n;
+  }
+});
+console.log(firstEven);
+</code></pre></div><p>唯一需要注意的就是forEach源码是怎么写的，看过源码的都知道，forEach使用return是不能中止循环的，或者说每一次调用callback函数，终止的是当前的一次，而不是整个循环。</p> <p>结果自然就是6</p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">5/7/2022, 3:27:30 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/summary/脚撕专有钉钉前端面试题.html" class="prev">
+        脚撕专有钉钉前端面试题
+      </a></span> <span class="next"><a href="/summary/送你21道高频JavaScript手写面试题.html">
+        送你21道高频JavaScript手写面试题
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.cc29bea5.js" defer></script><script src="/assets/js/2.83e79809.js" defer></script><script src="/assets/js/118.8e9169d6.js" defer></script>
+  </body>
+</html>

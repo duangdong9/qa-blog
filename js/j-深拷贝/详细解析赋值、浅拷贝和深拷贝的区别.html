@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>详细解析赋值、浅拷贝和深拷贝的区别 | duangdong的qa</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/logo.png">
+    <link rel="manifest" href="/manifest.json">
+    <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?0088ce24040b03f2947322ab31d23414";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+    <script>
+  var _hmt = _hmt || [];
+  _hmt.push(['_requirePlugin', 'UrlChangeTracker', {
+    shouldTrackUrlChange: function (newPath, oldPath) {
+      newPath = newPath.split('#')[0];
+      oldPath = oldPath.split('#')[0];
+      return newPath != oldPath;
+    }}
+  ]);
+  </script>
+    <meta name="description" content="前端QA集锦">
+    <meta name="keywords" content="qd-blog,js,vuepress,leetcode,react,react进阶,css,js进阶,react性能优化,js设计模式">
+    
+    <link rel="preload" href="/assets/css/0.styles.a427ee9b.css" as="style"><link rel="preload" href="/assets/js/app.cc29bea5.js" as="script"><link rel="preload" href="/assets/js/2.83e79809.js" as="script"><link rel="preload" href="/assets/js/52.525952af.js" as="script"><link rel="prefetch" href="/assets/js/10.cdef3e61.js"><link rel="prefetch" href="/assets/js/100.9de46115.js"><link rel="prefetch" href="/assets/js/101.70ad4a27.js"><link rel="prefetch" href="/assets/js/102.ff0729c2.js"><link rel="prefetch" href="/assets/js/103.b61f3d8a.js"><link rel="prefetch" href="/assets/js/104.94754019.js"><link rel="prefetch" href="/assets/js/105.cf6eaddb.js"><link rel="prefetch" href="/assets/js/106.09607941.js"><link rel="prefetch" href="/assets/js/107.eb6aad92.js"><link rel="prefetch" href="/assets/js/108.5fb05fc2.js"><link rel="prefetch" href="/assets/js/109.02705239.js"><link rel="prefetch" href="/assets/js/11.e19708ce.js"><link rel="prefetch" href="/assets/js/110.5b97d932.js"><link rel="prefetch" href="/assets/js/111.1741cbc8.js"><link rel="prefetch" href="/assets/js/112.91e34053.js"><link rel="prefetch" href="/assets/js/113.38b87fa3.js"><link rel="prefetch" href="/assets/js/114.69942d7f.js"><link rel="prefetch" href="/assets/js/115.5010afa8.js"><link rel="prefetch" href="/assets/js/116.c66bced5.js"><link rel="prefetch" href="/assets/js/117.61ecb793.js"><link rel="prefetch" href="/assets/js/118.8e9169d6.js"><link rel="prefetch" href="/assets/js/119.5b28750b.js"><link rel="prefetch" href="/assets/js/12.cce41bff.js"><link rel="prefetch" href="/assets/js/120.2cdd2d50.js"><link rel="prefetch" href="/assets/js/121.9bee1240.js"><link rel="prefetch" href="/assets/js/122.6a5d2b8a.js"><link rel="prefetch" href="/assets/js/123.242cf32a.js"><link rel="prefetch" href="/assets/js/124.0b76dfb5.js"><link rel="prefetch" href="/assets/js/125.c1e29722.js"><link rel="prefetch" href="/assets/js/126.9664677c.js"><link rel="prefetch" href="/assets/js/127.19752fc6.js"><link rel="prefetch" href="/assets/js/128.dd9e958a.js"><link rel="prefetch" href="/assets/js/129.84a3561e.js"><link rel="prefetch" href="/assets/js/13.c253f220.js"><link rel="prefetch" href="/assets/js/130.a08a6ecf.js"><link rel="prefetch" href="/assets/js/131.9e32d49f.js"><link rel="prefetch" href="/assets/js/132.0ae0b256.js"><link rel="prefetch" href="/assets/js/133.060204a8.js"><link rel="prefetch" href="/assets/js/134.15ce6cca.js"><link rel="prefetch" href="/assets/js/135.7d821d3b.js"><link rel="prefetch" href="/assets/js/136.f54c3393.js"><link rel="prefetch" href="/assets/js/137.73f8f3cb.js"><link rel="prefetch" href="/assets/js/138.3fcd68c2.js"><link rel="prefetch" href="/assets/js/139.a361e3fb.js"><link rel="prefetch" href="/assets/js/14.a84fbe4e.js"><link rel="prefetch" href="/assets/js/140.d6436f88.js"><link rel="prefetch" href="/assets/js/141.835fd3c3.js"><link rel="prefetch" href="/assets/js/142.6d7f1b6a.js"><link rel="prefetch" href="/assets/js/143.b59d5138.js"><link rel="prefetch" href="/assets/js/144.a91c5d7c.js"><link rel="prefetch" href="/assets/js/145.a82b970b.js"><link rel="prefetch" href="/assets/js/15.b54e6f93.js"><link rel="prefetch" href="/assets/js/16.ccb68524.js"><link rel="prefetch" href="/assets/js/17.685e3630.js"><link rel="prefetch" href="/assets/js/18.047549bf.js"><link rel="prefetch" href="/assets/js/19.0f4f96d2.js"><link rel="prefetch" href="/assets/js/20.b7f58fdf.js"><link rel="prefetch" href="/assets/js/21.cd536870.js"><link rel="prefetch" href="/assets/js/22.e6a2b54c.js"><link rel="prefetch" href="/assets/js/23.8761d4ef.js"><link rel="prefetch" href="/assets/js/24.3a10f654.js"><link rel="prefetch" href="/assets/js/25.299ff32c.js"><link rel="prefetch" href="/assets/js/26.2b06449f.js"><link rel="prefetch" href="/assets/js/27.eb2c15d0.js"><link rel="prefetch" href="/assets/js/28.3bb78046.js"><link rel="prefetch" href="/assets/js/29.26d0768b.js"><link rel="prefetch" href="/assets/js/3.8c6e4674.js"><link rel="prefetch" href="/assets/js/30.cb6d6f37.js"><link rel="prefetch" href="/assets/js/31.619debb1.js"><link rel="prefetch" href="/assets/js/32.5a01de56.js"><link rel="prefetch" href="/assets/js/33.93ba32f7.js"><link rel="prefetch" href="/assets/js/34.2ff74100.js"><link rel="prefetch" href="/assets/js/35.cdcf2ef2.js"><link rel="prefetch" href="/assets/js/36.1baecf5e.js"><link rel="prefetch" href="/assets/js/37.4002681b.js"><link rel="prefetch" href="/assets/js/38.0e84f132.js"><link rel="prefetch" href="/assets/js/39.215ee9b9.js"><link rel="prefetch" href="/assets/js/4.9d6db3cd.js"><link rel="prefetch" href="/assets/js/40.21802a7c.js"><link rel="prefetch" href="/assets/js/41.c772582d.js"><link rel="prefetch" href="/assets/js/42.5ef2d435.js"><link rel="prefetch" href="/assets/js/43.71deafdf.js"><link rel="prefetch" href="/assets/js/44.2acd6f92.js"><link rel="prefetch" href="/assets/js/45.8cf8ea01.js"><link rel="prefetch" href="/assets/js/46.a4a4f4ba.js"><link rel="prefetch" href="/assets/js/47.93b271ca.js"><link rel="prefetch" href="/assets/js/48.1e220ef7.js"><link rel="prefetch" href="/assets/js/49.5112acbe.js"><link rel="prefetch" href="/assets/js/5.9636b620.js"><link rel="prefetch" href="/assets/js/50.ea75d63c.js"><link rel="prefetch" href="/assets/js/51.ba8f6e8d.js"><link rel="prefetch" href="/assets/js/53.fbef089c.js"><link rel="prefetch" href="/assets/js/54.e36b03e8.js"><link rel="prefetch" href="/assets/js/55.1f8e914f.js"><link rel="prefetch" href="/assets/js/56.84d8db76.js"><link rel="prefetch" href="/assets/js/57.34d4b4f7.js"><link rel="prefetch" href="/assets/js/58.05df60b8.js"><link rel="prefetch" href="/assets/js/59.c50bb43f.js"><link rel="prefetch" href="/assets/js/6.26dc4787.js"><link rel="prefetch" href="/assets/js/60.2b363427.js"><link rel="prefetch" href="/assets/js/61.68061681.js"><link rel="prefetch" href="/assets/js/62.5ad03807.js"><link rel="prefetch" href="/assets/js/63.fd77d2f7.js"><link rel="prefetch" href="/assets/js/64.d16973e2.js"><link rel="prefetch" href="/assets/js/65.5a919fcc.js"><link rel="prefetch" href="/assets/js/66.09a5b755.js"><link rel="prefetch" href="/assets/js/67.911ca7b3.js"><link rel="prefetch" href="/assets/js/68.864e96c7.js"><link rel="prefetch" href="/assets/js/69.bc28ceb9.js"><link rel="prefetch" href="/assets/js/7.4a3e9bcd.js"><link rel="prefetch" href="/assets/js/70.a2d51b70.js"><link rel="prefetch" href="/assets/js/71.85cf7cc4.js"><link rel="prefetch" href="/assets/js/72.61cbf371.js"><link rel="prefetch" href="/assets/js/73.bbe26749.js"><link rel="prefetch" href="/assets/js/74.0c80f634.js"><link rel="prefetch" href="/assets/js/75.a627cf37.js"><link rel="prefetch" href="/assets/js/76.82d762a4.js"><link rel="prefetch" href="/assets/js/77.f1dd0c86.js"><link rel="prefetch" href="/assets/js/78.0c9ca678.js"><link rel="prefetch" href="/assets/js/79.4b4bdd67.js"><link rel="prefetch" href="/assets/js/8.615f8dfa.js"><link rel="prefetch" href="/assets/js/80.af506ad1.js"><link rel="prefetch" href="/assets/js/81.8147dc63.js"><link rel="prefetch" href="/assets/js/82.d596b5b5.js"><link rel="prefetch" href="/assets/js/83.8b8464fc.js"><link rel="prefetch" href="/assets/js/84.94df2c90.js"><link rel="prefetch" href="/assets/js/85.6a1fce19.js"><link rel="prefetch" href="/assets/js/86.7fed48ad.js"><link rel="prefetch" href="/assets/js/87.8a65e797.js"><link rel="prefetch" href="/assets/js/88.91c2a3ae.js"><link rel="prefetch" href="/assets/js/89.685771e6.js"><link rel="prefetch" href="/assets/js/9.5432b7e3.js"><link rel="prefetch" href="/assets/js/90.2c9acfca.js"><link rel="prefetch" href="/assets/js/91.c246a84c.js"><link rel="prefetch" href="/assets/js/92.9e0e0bc4.js"><link rel="prefetch" href="/assets/js/93.91ade19e.js"><link rel="prefetch" href="/assets/js/94.57275978.js"><link rel="prefetch" href="/assets/js/95.9417a38f.js"><link rel="prefetch" href="/assets/js/96.7ed5489e.js"><link rel="prefetch" href="/assets/js/97.4ef9d211.js"><link rel="prefetch" href="/assets/js/98.bbe7aad9.js"><link rel="prefetch" href="/assets/js/99.a3813c70.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.a427ee9b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">duangdong的qa</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/js/" class="nav-link router-link-active">
+  JS方面
+</a></div><div class="nav-item"><a href="/webpack/" class="nav-link">
+  Webpack
+</a></div><div class="nav-item"><a href="/react/" class="nav-link">
+  React
+</a></div><div class="nav-item"><a href="/summary/" class="nav-link">
+  汇总
+</a></div><div class="nav-item"><a href="/algorithm/" class="nav-link">
+  常见算法
+</a></div><div class="nav-item"><a href="/performance/" class="nav-link">
+  性能优化
+</a></div><div class="nav-item"><a href="/http/" class="nav-link">
+  网络协议
+</a></div><div class="nav-item"><a href="/css/" class="nav-link">
+  CSS
+</a></div><div class="nav-item"><a href="/face-sutra/" class="nav-link">
+  QA
+</a></div><div class="nav-item"><a href="https://link.qdzhou.cn" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Home
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/js/" class="nav-link router-link-active">
+  JS方面
+</a></div><div class="nav-item"><a href="/webpack/" class="nav-link">
+  Webpack
+</a></div><div class="nav-item"><a href="/react/" class="nav-link">
+  React
+</a></div><div class="nav-item"><a href="/summary/" class="nav-link">
+  汇总
+</a></div><div class="nav-item"><a href="/algorithm/" class="nav-link">
+  常见算法
+</a></div><div class="nav-item"><a href="/performance/" class="nav-link">
+  性能优化
+</a></div><div class="nav-item"><a href="/http/" class="nav-link">
+  网络协议
+</a></div><div class="nav-item"><a href="/css/" class="nav-link">
+  CSS
+</a></div><div class="nav-item"><a href="/face-sutra/" class="nav-link">
+  QA
+</a></div><div class="nav-item"><a href="https://link.qdzhou.cn" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Home
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/js/" aria-current="page" class="sidebar-link">相关问题总结</a></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>axios</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>d-js手动实现</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>i-节流防抖</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>j-深拷贝</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/js/j-深拷贝/Lodash是如何实现深拷贝的.html" class="sidebar-link">Lodash是如何实现深拷贝的</a></li><li><a href="/js/j-深拷贝/assign原理及其实现.html" class="sidebar-link">Object.assign 原理及其实现</a></li><li><a href="/js/j-深拷贝/为什么会有深拷贝和浅拷贝.html" class="sidebar-link">为什么会有深拷贝和浅拷贝</a></li><li><a href="/js/j-深拷贝/深拷贝和浅拷贝的区别.html" class="sidebar-link">深拷贝和浅拷贝的区别</a></li><li><a href="/js/j-深拷贝/深拷贝实现.html" class="sidebar-link">深拷贝实现</a></li><li><a href="/js/j-深拷贝/详细解析赋值、浅拷贝和深拷贝的区别.html" class="active sidebar-link">详细解析赋值、浅拷贝和深拷贝的区别</a></li><li><a href="/js/j-深拷贝/面试题之如何实现一个深拷贝.html" class="sidebar-link">面试题之如何实现一个深拷贝</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>k-数组</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>n-es6</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>z-ts</span> <span class="arrow right"></span></p> <!----></section></li><li><a href="/js/宏任务和微任务.html" class="sidebar-link">十分钟把宏任务和微任务讲清楚</a></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>异步</span> <span class="arrow right"></span></p> <!----></section></li><li><a href="/js/观察者模式.html" class="sidebar-link">观察者模式</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="详细解析赋值、浅拷贝和深拷贝的区别"><a href="#详细解析赋值、浅拷贝和深拷贝的区别" class="header-anchor">#</a> 详细解析赋值、浅拷贝和深拷贝的区别</h1> <blockquote><p><a href="https://muyiy.cn/blog/4/4.1.html" target="_blank" rel="noopener noreferrer">https://muyiy.cn/blog/4/4.1.html<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></blockquote> <h2 id="一、赋值-copy"><a href="#一、赋值-copy" class="header-anchor">#</a> <a href="https://muyiy.cn/blog/4/4.1.html#%E4%B8%80%E3%80%81%E8%B5%8B%E5%80%BC%EF%BC%88copy%EF%BC%89" target="_blank" rel="noopener noreferrer">#<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>一、赋值（Copy）</h2> <p>赋值是将某一数值或对象赋给某个变量的过程，分为下面 2 部分</p> <ul><li>基本数据类型：赋值，赋值之后两个变量互不影响</li> <li>引用数据类型：赋<strong>址</strong>，两个变量具有相同的引用，指向同一个对象，相互之间有影响</li></ul> <p>对基本类型进行赋值操作，两个变量互不影响。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 木易杨</span>
+<span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token string">&quot;muyiy&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> b <span class="token operator">=</span> a<span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// muyiy</span>
+
+a <span class="token operator">=</span> <span class="token string">&quot;change&quot;</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// change</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// muyiy</span>
+</code></pre></div><p>对引用类型进行赋<strong>址</strong>操作，两个变量指向同一个对象，改变变量 a 之后会影响变量 b，哪怕改变的只是对象 a 中的基本类型数据。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 木易杨</span>
+<span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token punctuation">{</span>
+    name<span class="token operator">:</span> <span class="token string">&quot;muyiy&quot;</span><span class="token punctuation">,</span>
+    book<span class="token operator">:</span> <span class="token punctuation">{</span>
+        title<span class="token operator">:</span> <span class="token string">&quot;You Don't Know JS&quot;</span><span class="token punctuation">,</span>
+        price<span class="token operator">:</span> <span class="token string">&quot;45&quot;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">let</span> b <span class="token operator">=</span> a<span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// {</span>
+<span class="token comment">// 	name: &quot;muyiy&quot;,</span>
+<span class="token comment">// 	book: {title: &quot;You Don't Know JS&quot;, price: &quot;45&quot;}</span>
+<span class="token comment">// } </span>
+
+a<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">&quot;change&quot;</span><span class="token punctuation">;</span>
+a<span class="token punctuation">.</span>book<span class="token punctuation">.</span>price <span class="token operator">=</span> <span class="token string">&quot;55&quot;</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// {</span>
+<span class="token comment">// 	name: &quot;change&quot;,</span>
+<span class="token comment">// 	book: {title: &quot;You Don't Know JS&quot;, price: &quot;55&quot;}</span>
+<span class="token comment">// } </span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// {</span>
+<span class="token comment">// 	name: &quot;change&quot;,</span>
+<span class="token comment">// 	book: {title: &quot;You Don't Know JS&quot;, price: &quot;55&quot;}</span>
+<span class="token comment">// } </span>
+</code></pre></div><p>通常在开发中并不希望改变变量 a 之后会影响到变量 b，这时就需要用到浅拷贝和深拷贝。</p> <h2 id="二、浅拷贝-shallow-copy"><a href="#二、浅拷贝-shallow-copy" class="header-anchor">#</a> <a href="https://muyiy.cn/blog/4/4.1.html#%E4%BA%8C%E3%80%81%E6%B5%85%E6%8B%B7%E8%B4%9D%EF%BC%88shallow-copy%EF%BC%89" target="_blank" rel="noopener noreferrer">#<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>二、浅拷贝（Shallow Copy）</h2> <h3 id="_1、什么是浅拷贝"><a href="#_1、什么是浅拷贝" class="header-anchor">#</a> <a href="https://muyiy.cn/blog/4/4.1.html#_1%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AF%E6%B5%85%E6%8B%B7%E8%B4%9D" target="_blank" rel="noopener noreferrer">#<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>1、什么是浅拷贝</h3> <p>创建一个新对象，这个对象有着原始对象属性值的一份精确拷贝。如果属性是基本类型，拷贝的就是基本类型的值，如果属性是引用类型，拷贝的就是内存地址 ，所以如果其中一个对象改变了这个地址，就会影响到另一个对象。</p> <p><img src="http://resource.muyiy.cn/image/2019-07-24-060221.png" alt="img"></p> <p>上图中，<code>SourceObject</code> 是原对象，其中包含基本类型属性 <code>field1</code> 和引用类型属性 <code>refObj</code>。浅拷贝之后基本类型数据 <code>field2</code> 和 <code>filed1</code> 是不同属性，互不影响。但引用类型 <code>refObj</code> 仍然是同一个，改变之后会对另一个对象产生影响。</p> <p>简单来说可以理解为浅拷贝只解决了第一层的问题，拷贝第一层的<strong>基本类型值</strong>，以及第一层的<strong>引用类型地址</strong>。</p> <h3 id="_2、浅拷贝使用场景"><a href="#_2、浅拷贝使用场景" class="header-anchor">#</a> <a href="https://muyiy.cn/blog/4/4.1.html#_2%E3%80%81%E6%B5%85%E6%8B%B7%E8%B4%9D%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF" target="_blank" rel="noopener noreferrer">#<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>2、浅拷贝使用场景</h3> <ul><li><code>Object.assign()</code></li></ul> <p><code>Object.assign()</code> 方法用于将所有可枚举属性的值从一个或多个源对象复制到目标对象。它将返回目标对象。</p> <p>有些文章说<code>Object.assign()</code> 是深拷贝，其实这是不正确的。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 木易杨</span>
+<span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token punctuation">{</span>
+    name<span class="token operator">:</span> <span class="token string">&quot;muyiy&quot;</span><span class="token punctuation">,</span>
+    book<span class="token operator">:</span> <span class="token punctuation">{</span>
+        title<span class="token operator">:</span> <span class="token string">&quot;You Don't Know JS&quot;</span><span class="token punctuation">,</span>
+        price<span class="token operator">:</span> <span class="token string">&quot;45&quot;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">let</span> b <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// {</span>
+<span class="token comment">// 	name: &quot;muyiy&quot;,</span>
+<span class="token comment">// 	book: {title: &quot;You Don't Know JS&quot;, price: &quot;45&quot;}</span>
+<span class="token comment">// } </span>
+
+a<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">&quot;change&quot;</span><span class="token punctuation">;</span>
+a<span class="token punctuation">.</span>book<span class="token punctuation">.</span>price <span class="token operator">=</span> <span class="token string">&quot;55&quot;</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// {</span>
+<span class="token comment">// 	name: &quot;change&quot;,</span>
+<span class="token comment">// 	book: {title: &quot;You Don't Know JS&quot;, price: &quot;55&quot;}</span>
+<span class="token comment">// } </span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// {</span>
+<span class="token comment">// 	name: &quot;muyiy&quot;,</span>
+<span class="token comment">// 	book: {title: &quot;You Don't Know JS&quot;, price: &quot;55&quot;}</span>
+<span class="token comment">// } </span>
+</code></pre></div><p>上面代码改变对象 a 之后，对象 b 的基本属性保持不变。但是当改变对象 a 中的对象 <code>book</code> 时，对象 b 相应的位置也发生了变化。</p> <ul><li>展开语法 <code>Spread</code></li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 木易杨</span>
+<span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token punctuation">{</span>
+    name<span class="token operator">:</span> <span class="token string">&quot;muyiy&quot;</span><span class="token punctuation">,</span>
+    book<span class="token operator">:</span> <span class="token punctuation">{</span>
+        title<span class="token operator">:</span> <span class="token string">&quot;You Don't Know JS&quot;</span><span class="token punctuation">,</span>
+        price<span class="token operator">:</span> <span class="token string">&quot;45&quot;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">let</span> b <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token operator">...</span>a<span class="token punctuation">}</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// {</span>
+<span class="token comment">// 	name: &quot;muyiy&quot;,</span>
+<span class="token comment">// 	book: {title: &quot;You Don't Know JS&quot;, price: &quot;45&quot;}</span>
+<span class="token comment">// } </span>
+
+a<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">&quot;change&quot;</span><span class="token punctuation">;</span>
+a<span class="token punctuation">.</span>book<span class="token punctuation">.</span>price <span class="token operator">=</span> <span class="token string">&quot;55&quot;</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// {</span>
+<span class="token comment">// 	name: &quot;change&quot;,</span>
+<span class="token comment">// 	book: {title: &quot;You Don't Know JS&quot;, price: &quot;55&quot;}</span>
+<span class="token comment">// } </span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// {</span>
+<span class="token comment">// 	name: &quot;muyiy&quot;,</span>
+<span class="token comment">// 	book: {title: &quot;You Don't Know JS&quot;, price: &quot;55&quot;}</span>
+<span class="token comment">// } </span>
+</code></pre></div><p>通过代码可以看出实际效果和 <code>Object.assign()</code> 是一样的。</p> <ul><li><code>Array.prototype.slice()</code></li></ul> <p><code>slice()</code> 方法返回一个新的数组对象，这一对象是一个由 <code>begin</code>和 <code>end</code>（不包括<code>end</code>）决定的原数组的<strong>浅拷贝</strong>。原始数组不会被改变。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 木易杨</span>
+<span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">&quot;1&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> b <span class="token operator">=</span> a<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// [&quot;1&quot;, [2, 3]]</span>
+
+a<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">&quot;99&quot;</span><span class="token punctuation">;</span>
+a<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// [0, &quot;99&quot;, [4, 3]]</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//  [&quot;1&quot;, [4, 3]]</span>
+</code></pre></div><p>可以看出，改变 <code>a[1]</code> 之后 <code>b[0]</code> 的值并没有发生变化，但改变 <code>a[2][0]</code> 之后，相应的 <code>b[1][0]</code> 的值也发生变化。说明 <code>slice()</code> 方法是浅拷贝，相应的还有<code>concat</code>等，在工作中面对复杂数组结构要额外注意。</p> <h2 id="三、深拷贝-deep-copy"><a href="#三、深拷贝-deep-copy" class="header-anchor">#</a> <a href="https://muyiy.cn/blog/4/4.1.html#%E4%B8%89%E3%80%81%E6%B7%B1%E6%8B%B7%E8%B4%9D%EF%BC%88deep-copy%EF%BC%89" target="_blank" rel="noopener noreferrer">#<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>三、深拷贝（Deep Copy）</h2> <h3 id="_1、什么是深拷贝"><a href="#_1、什么是深拷贝" class="header-anchor">#</a> <a href="https://muyiy.cn/blog/4/4.1.html#_1%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AF%E6%B7%B1%E6%8B%B7%E8%B4%9D" target="_blank" rel="noopener noreferrer">#<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>1、什么是深拷贝</h3> <p>深拷贝会拷贝所有的属性，并拷贝属性指向的动态分配的内存。当对象和它所引用的对象一起拷贝时即发生深拷贝。深拷贝相比于浅拷贝速度较慢并且花销较大。拷贝前后两个对象互不影响。</p> <p><img src="http://resource.muyiy.cn/image/2019-07-24-060222.png" alt="img"></p> <h3 id="_2、深拷贝使用场景"><a href="#_2、深拷贝使用场景" class="header-anchor">#</a> <a href="https://muyiy.cn/blog/4/4.1.html#_2%E3%80%81%E6%B7%B1%E6%8B%B7%E8%B4%9D%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF" target="_blank" rel="noopener noreferrer">#<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>2、深拷贝使用场景</h3> <div class="language- extra-class"><pre class="language-text"><code>JSON.parse(JSON.stringify(object))
+// 木易杨
+let a = {
+    name: &quot;muyiy&quot;,
+    book: {
+        title: &quot;You Don't Know JS&quot;,
+        price: &quot;45&quot;
+    }
+}
+let b = JSON.parse(JSON.stringify(a));
+console.log(b);
+// {
+// 	name: &quot;muyiy&quot;,
+// 	book: {title: &quot;You Don't Know JS&quot;, price: &quot;45&quot;}
+// } 
+
+a.name = &quot;change&quot;;
+a.book.price = &quot;55&quot;;
+console.log(a);
+// {
+// 	name: &quot;change&quot;,
+// 	book: {title: &quot;You Don't Know JS&quot;, price: &quot;55&quot;}
+// } 
+
+console.log(b);
+// {
+// 	name: &quot;muyiy&quot;,
+// 	book: {title: &quot;You Don't Know JS&quot;, price: &quot;45&quot;}
+// } 
+</code></pre></div><p>完全改变变量 a 之后对 b 没有任何影响，这就是深拷贝的魔力。</p> <p>我们看下对数组深拷贝效果如何。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 木易杨</span>
+<span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">&quot;1&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> b <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span> a<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// [&quot;1&quot;, [2, 3]]</span>
+
+a<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">&quot;99&quot;</span><span class="token punctuation">;</span>
+a<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// [0, &quot;99&quot;, [4, 3]]</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//  [&quot;1&quot;, [2, 3]]</span>
+</code></pre></div><p>对数组深拷贝之后，改变原数组不会影响到拷贝之后的数组。</p> <p>但是该方法有以下几个问题。</p> <p>1、会忽略 <code>undefined</code></p> <p>2、会忽略 <code>symbol</code></p> <p>3、不能序列化函数</p> <p>4、不能解决循环引用的对象</p> <p>5、不能正确处理<code>new Date()</code></p> <p>6、不能处理正则</p> <ul><li><code>undefined</code>、<code>symbol</code> 和函数这三种情况，会直接忽略。</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 木易杨</span>
+<span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+    name<span class="token operator">:</span> <span class="token string">'muyiy'</span><span class="token punctuation">,</span>
+    a<span class="token operator">:</span> <span class="token keyword">undefined</span><span class="token punctuation">,</span>
+    b<span class="token operator">:</span> <span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token string">'muyiy'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function-variable function">c</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// {</span>
+<span class="token comment">// 	name: &quot;muyiy&quot;, </span>
+<span class="token comment">// 	a: undefined, </span>
+<span class="token comment">//  b: Symbol(muyiy), </span>
+<span class="token comment">//  c: ƒ ()</span>
+<span class="token comment">// }</span>
+
+<span class="token keyword">let</span> b <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// {name: &quot;muyiy&quot;}</span>
+</code></pre></div><ul><li>循环引用情况下，会报错。</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 木易杨</span>
+<span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+    a<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    b<span class="token operator">:</span> <span class="token punctuation">{</span>
+        c<span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+   		d<span class="token operator">:</span> <span class="token number">3</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+obj<span class="token punctuation">.</span>a <span class="token operator">=</span> obj<span class="token punctuation">.</span>b<span class="token punctuation">;</span>
+obj<span class="token punctuation">.</span>b<span class="token punctuation">.</span>c <span class="token operator">=</span> obj<span class="token punctuation">.</span>a<span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> b <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Uncaught TypeError: Converting circular structure to JSON</span>
+</code></pre></div><ul><li><code>new Date</code> 情况下，转换结果不正确。</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 木易杨</span>
+<span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Mon Dec 24 2018 10:59:14 GMT+0800 (China Standard Time)</span>
+
+<span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// &quot;&quot;2018-12-24T02:59:25.776Z&quot;&quot;</span>
+
+<span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// &quot;2018-12-24T02:59:41.523Z&quot;</span>
+</code></pre></div><p>解决方法转成字符串或者时间戳就好了。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 木易杨</span>
+<span class="token keyword">let</span> date <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 1545620645915</span>
+
+<span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>date<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// &quot;1545620673267&quot;</span>
+
+<span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>date<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 1545620658688</span>
+</code></pre></div><ul><li>正则情况下，</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 木易杨</span>
+<span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+    name<span class="token operator">:</span> <span class="token string">&quot;muyiy&quot;</span><span class="token punctuation">,</span>
+    a<span class="token operator">:</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">'123'</span><span class="token regex-delimiter">/</span></span>
+<span class="token punctuation">}</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// {name: &quot;muyiy&quot;, a: /'123'/}</span>
+
+<span class="token keyword">let</span> b <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// {name: &quot;muyiy&quot;, a: {}}</span>
+</code></pre></div><p>PS：为什么会存在这些问题可以学习一下 JSON。</p> <p>除了上面介绍的深拷贝方法，常用的还有<code>jQuery.extend()</code> 和 <code>lodash.cloneDeep()</code>，后面文章会详细介绍源码实现，敬请期待！</p> <h2 id="四、总结"><a href="#四、总结" class="header-anchor">#</a> <a href="https://muyiy.cn/blog/4/4.1.html#%E5%9B%9B%E3%80%81%E6%80%BB%E7%BB%93" target="_blank" rel="noopener noreferrer">#<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>四、总结</h2> <table><thead><tr><th style="text-align:center;">--</th> <th style="text-align:center;">和原数据是否指向同一对象</th> <th style="text-align:center;">第一层数据为基本数据类型</th> <th style="text-align:center;">原数据中包含子对象</th></tr></thead> <tbody><tr><td style="text-align:center;">赋值</td> <td style="text-align:center;">是</td> <td style="text-align:center;">改变会使原数据一同改变</td> <td style="text-align:center;">改变会使原数据一同改变</td></tr> <tr><td style="text-align:center;">浅拷贝</td> <td style="text-align:center;">否</td> <td style="text-align:center;">改变<strong>不</strong>会使原数据一同改变</td> <td style="text-align:center;">改变会使原数据一同改变</td></tr> <tr><td style="text-align:center;">深拷贝</td> <td style="text-align:center;">否</td> <td style="text-align:center;">改变<strong>不</strong>会使原数据一同改变</td> <td style="text-align:center;">改变<strong>不</strong>会使原数据一同改变</td></tr></tbody></table> <h2 id="参考"><a href="#参考" class="header-anchor">#</a> <a href="https://muyiy.cn/blog/4/4.1.html#%E5%8F%82%E8%80%83" target="_blank" rel="noopener noreferrer">#<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>参考</h2> <blockquote><p><a href="https://juejin.im/post/59ac1c4ef265da248e75892b" target="_blank" rel="noopener noreferrer">js 深拷贝 vs 浅拷贝<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p><a href="https://my.oschina.net/jackieyeah/blog/206391" target="_blank" rel="noopener noreferrer">Java 深拷贝和浅拷贝<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/assign" target="_blank" rel="noopener noreferrer">MDN 之 Object.assign()<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Spread_syntax" target="_blank" rel="noopener noreferrer">MDN 之展开语法<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/slice" target="_blank" rel="noopener noreferrer">MDN 之 Array.prototype.slice()<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></blockquote></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">5/7/2022, 3:27:30 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/js/j-深拷贝/深拷贝实现.html" class="prev">
+        深拷贝实现
+      </a></span> <span class="next"><a href="/js/j-深拷贝/面试题之如何实现一个深拷贝.html">
+        面试题之如何实现一个深拷贝
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.cc29bea5.js" defer></script><script src="/assets/js/2.83e79809.js" defer></script><script src="/assets/js/52.525952af.js" defer></script>
+  </body>
+</html>
